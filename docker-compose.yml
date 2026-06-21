@@ -1,0 +1,46 @@
+# ============================================================
+# MTG Investment Portal — Docker Compose
+# ============================================================
+
+services:
+  portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mtg-portal
+    ports:
+      - "3000:3000"
+    volumes:
+      - mtg_data:/data
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    depends_on:
+      - scanner
+    networks:
+      - mtg_net
+
+  scanner:
+    build:
+      context: .
+      dockerfile: docker/scanner/Dockerfile
+    container_name: mtg-scanner
+    ports:
+      - "8899:8899"
+    volumes:
+      - mtg_data:/data
+      - /c/Users/boss/AppData/Local/hermes/scripts/mtg_bot:/app/scripts:ro
+    environment:
+      - DATA_DIR=/data
+      - SCRIPTS_DIR=/app/scripts
+      - PORT=8899
+    restart: unless-stopped
+    networks:
+      - mtg_net
+
+volumes:
+  mtg_data:
+
+networks:
+  mtg_net:
+    driver: bridge

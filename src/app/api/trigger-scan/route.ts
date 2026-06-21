@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const TRIGGER_URL = "https://des-bottle-package-classifieds.trycloudflare.com";
+const TRIGGER_URL = process.env.SCANNER_URL || "http://scanner:8899";
 const STATUS_URL = `${TRIGGER_URL}/status`;
 const SCAN_URL = `${TRIGGER_URL}/trigger-scan`;
 
