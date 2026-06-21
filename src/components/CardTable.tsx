@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import CardPopover from "./CardPopover";
 
 interface CardData {
   name: string;
@@ -121,7 +122,17 @@ export default function CardTable({
                 >
                   {/* Card Info */}
                   <td className="px-4 py-3">
-                    <div className="font-medium text-slate-200">{card.name}</div>
+                    <CardPopover
+                      cardName={card.name}
+                      setCode={card.set}
+                      foilPrice={card.foil_price}
+                      reasons={card.reasons}
+                      typeLine={card.type_line}
+                      rarity={card.rarity}
+                      score={card.composite_score}
+                    >
+                      <div className="font-medium text-slate-200 cursor-pointer hover:text-purple-300 transition-colors">{card.name}</div>
+                    </CardPopover>
                     <div className="text-xs text-slate-500 flex gap-2 mt-0.5">
                       <span className="text-purple-400">{card.set}</span>
                       <span>{card.rarity}</span>
