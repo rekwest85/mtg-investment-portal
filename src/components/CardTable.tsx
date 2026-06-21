@@ -162,6 +162,7 @@ export default function CardTable({
               const isExpanded = expandedCard === cardKey;
 
               return (
+                <>
                 <tr
                   key={cardKey}
                   className={`border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors group cursor-pointer ${
@@ -336,6 +337,7 @@ export default function CardTable({
                     </td>
                   </tr>
                 )}
+              </>
               );
             })}
           </tbody>
