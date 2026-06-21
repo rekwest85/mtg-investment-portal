@@ -1,56 +1,31 @@
 import { NextResponse } from "next/server";
 
-// Module-level helper — avoids "function in block" TS strict mode error
-function tryReadFile(filePath: string): any {
+const DATA_BASE = process.cwd() + "/public/data";
+
+function loadJSON(name: string) {
   try {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const fs = require("fs");
-    if (fs.existsSync(filePath)) {
-      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    }
-  } catch {
-    // File not found or parse error
-  }
-  return null;
-}
-
-function findDataFile(name: string, baseDir: string): string | null {
-  const candidates = [
-    `${baseDir}/data/${name}`,
-    `${baseDir}/public/data/${name}`,
-    `${baseDir}/../data/${name}`,
-  ];
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const fs = require("fs");
-  for (const p of candidates) {
-    try {
-      if (fs.existsSync(p)) return p;
-    } catch {
-      // skip
-    }
-  }
-  return null;
+    const p = `${DATA_BASE}/${name}`;
+    if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, "utf-8"));
+    return null;
+  } catch { return null; }
 }
 
 export async function GET() {
   try {
-    const baseDir = process.cwd();
+    const analysis = loadJSON("analysis.json");
+    const availability = loadJSON("availability.json");
+    const history = loadJSON("price_history.json");
+    const meta = loadJSON("meta.json");
 
-    const analysis = tryReadFile(findDataFile("analysis.json", baseDir));
-    const availability = tryReadFile(findDataFile("availability.json", baseDir));
-    const history = tryReadFile(findDataFile("price_history.json", baseDir));
-    const meta = tryReadFile(findDataFile("meta.json", baseDir));
-
-    // Build store availability map
     const availMap: Record<string, any[]> = {};
     if (availability?.cards) {
       for (const card of availability.cards) {
-        const key = `${card.name}|${card.set || ""}`.toLowerCase();
-        availMap[key] = card.available || [];
+        availMap[`${card.name}|${card.set || ""}`.toLowerCase()] = card.available || [];
       }
     }
 
-    // Build history map
     const historyMap: Record<string, any> = {};
     if (history?.cards) {
       for (const hc of history.cards) {
@@ -58,7 +33,6 @@ export async function GET() {
       }
     }
 
-    // Merge all card data
     const cards: any[] = [];
     const seenCards = new Set<string>();
 
@@ -71,26 +45,22 @@ export async function GET() {
       seenCards.add(key);
 
       const storeData = availMap[key] || [];
-      const histData = historyMap[list.name.toLowerCase()];
       let bestStore = null;
       if (storeData.length > 0) {
         let best = storeData[0];
-        for (const s of storeData) {
-          if (s.price < best.price) best = s;
-        }
+        for (const s of storeData) { if (s.price < best.price) best = s; }
         bestStore = best;
       }
 
       cards.push({
         ...list,
         store_availability: storeData,
-        price_history: histData,
+        price_history: historyMap[list.name.toLowerCase()] || null,
         best_price: bestStore?.price ?? null,
         best_store: bestStore,
       });
     }
 
-    // Build store list
     const storeNames = new Set<string>();
     if (availability?.cards) {
       for (const card of availability.cards) {
@@ -108,27 +78,12 @@ export async function GET() {
         total_cards_under_50: analysis?.summary?.total_cards_under_50,
         total_under_5: analysis?.summary?.total_under_5,
         availability: availability?.summary || {},
-        meta: meta
-          ? {
-              total_decks: meta.total_decks,
-              archetypes: meta.archetypes
-                ? Object.fromEntries(
-                    Object.entries(meta.archetypes).map(([k, v]) => [
-                      k,
-                      (v as any[]).slice(0, 5),
-                    ])
-                  )
-                : null,
-            }
-          : null,
+        meta: meta ? { total_decks: meta.total_decks, archetypes: meta.archetypes ? Object.fromEntries(Object.entries(meta.archetypes).map(([k, v]) => [k, (v as any[]).slice(0, 5)])) : null } : null,
         scanned_at: availability?.scanned_at || null,
       },
     });
   } catch (error: any) {
     console.error("Data API error:", error?.message || String(error));
-    return NextResponse.json(
-      { error: "Failed to load data" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to load data" }, { status: 500 });
   }
 }

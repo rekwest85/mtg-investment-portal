@@ -1,0 +1,137 @@
+{
+  "snapshots": [
+    "2026-06-21"
+  ],
+  "cards": {
+    "Forgotten Harvest|PCY": [
+      {
+        "date": "2026-06-21",
+        "price": 0.01,
+        "nonfoil_price": 0.23
+      },
+      {
+        "date": "2026-06-21",
+        "price": 0.01,
+        "nonfoil_price": 0.23
+      }
+    ],
+    "Undermine|INV": [
+      {
+        "date": "2026-06-21",
+        "price": 9.86,
+        "nonfoil_price": 8.72
+      }
+    ],
+    "Barbed Field|PCY": [
+      {
+        "date": "2026-06-21",
+        "price": 0.21,
+        "nonfoil_price": 0.38
+      },
+      {
+        "date": "2026-06-21",
+        "price": 0.21,
+        "nonfoil_price": 0.38
+      }
+    ],
+    "Utopia Tree|INV": [
+      {
+        "date": "2026-06-21",
+        "price": 2.25,
+        "nonfoil_price": 2.53
+      },
+      {
+        "date": "2026-06-21",
+        "price": 2.25,
+        "nonfoil_price": 2.53
+      }
+    ],
+    "Weatherseed Treefolk|ULG": [
+      {
+        "date": "2026-06-21",
+        "price": 43.0,
+        "nonfoil_price": 1.53
+      }
+    ],
+    "Wheel and Deal|ONS": [
+      {
+        "date": "2026-06-21",
+        "price": 26.4,
+        "nonfoil_price": 16.74
+      }
+    ],
+    "Mana Vapors|PCY": [
+      {
+        "date": "2026-06-21",
+        "price": 0.5,
+        "nonfoil_price": 0.35
+      },
+      {
+        "date": "2026-06-21",
+        "price": 0.5,
+        "nonfoil_price": 0.35
+      }
+    ],
+    "Close Quarters|MMQ": [
+      {
+        "date": "2026-06-21",
+        "price": 0.39,
+        "nonfoil_price": 0.31
+      },
+      {
+        "date": "2026-06-21",
+        "price": 0.39,
+        "nonfoil_price": 0.31
+      }
+    ],
+    "Faces of the Past|SCG": [
+      {
+        "date": "2026-06-21",
+        "price": 27.52,
+        "nonfoil_price": 14.59
+      }
+    ],
+    "Xantid Swarm|SCG": [
+      {
+        "date": "2026-06-21",
+        "price": 21.99,
+        "nonfoil_price": 13.89
+      }
+    ],
+    "Infected Vermin|ODY": [
+      {
+        "date": "2026-06-21",
+        "price": 0.3,
+        "nonfoil_price": 0.42
+      }
+    ],
+    "Endbringer's Revel|PCY": [
+      {
+        "date": "2026-06-21",
+        "price": 0.33,
+        "nonfoil_price": 0.19
+      }
+    ],
+    "Skirk Marauder|LGN": [
+      {
+        "date": "2026-06-21",
+        "price": 0.08,
+        "nonfoil_price": 0.12
+      }
+    ],
+    "Stronghold Zeppelin|NEM": [
+      {
+        "date": "2026-06-21",
+        "price": 0.25,
+        "nonfoil_price": 0.16
+      }
+    ],
+    "Rhox|S00": [
+      {
+        "date": "2026-06-21",
+        "price": 0.91,
+        "nonfoil_price": null
+      }
+    ]
+  }
+}
