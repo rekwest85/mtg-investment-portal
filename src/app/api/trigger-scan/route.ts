@@ -1,94 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const OWNER = "rekwest85";
-const REPO = "mtg-investment-portal";
-const PATH = "scan_trigger.json";
-const BRANCH = "main";
-const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
-
-async function getCurrentSha(): Promise<string | null> {
-  try {
-    const res = await fetch(`${API}?ref=${BRANCH}`, {
-      headers: { "User-Agent": "MTG-Portal/1.0", "Accept": "application/vnd.github.v3+json" },
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.sha || null;
-  } catch { return null; }
-}
-
-async function updateTriggerFile(requested: boolean): Promise<boolean> {
-  const sha = await getCurrentSha();
-  const content = JSON.stringify({
-    requested,
-    requested_at: requested ? new Date().toISOString() : null,
-    completed_at: requested ? null : new Date().toISOString(),
-  });
-  const body: any = {
-    message: requested ? "🔍 Scan requested via portal" : "✅ Scan completed (reset trigger)",
-    content: Buffer.from(content).toString("base64"),
-    branch: BRANCH,
-  };
-  if (sha) body.sha = sha;
-
-  try {
-    const res = await fetch(API, {
-      method: "PUT",
-      headers: {
-        "User-Agent": "MTG-Portal/1.0",
-        "Accept": "application/vnd.github.v3+json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-    return res.ok;
-  } catch { return false; }
-}
+const TRIGGER_URL = "https://des-bottle-package-classifieds.trycloudflare.com";
+const STATUS_URL = `${TRIGGER_URL}/status`;
+const SCAN_URL = `${TRIGGER_URL}/trigger-scan`;
 
 export async function POST(request: NextRequest) {
   try {
     let body: any = {};
     try { body = await request.json(); } catch { body = {}; }
 
-    if (body.reset) {
-      const ok = await updateTriggerFile(false);
-      return NextResponse.json({
-        ok,
-        message: ok ? "Trigger reset." : "Failed to reset trigger (rate limit?)",
-      });
-    }
+    const endpoint = body.reset ? STATUS_URL : SCAN_URL;
+    const method = body.reset ? "POST" : "POST";
+    const payload = body.reset ? JSON.stringify({ reset: true }) : JSON.stringify({});
 
-    const ok = await updateTriggerFile(true);
-    return NextResponse.json({
-      ok,
-      message: ok
-        ? "✅ Scan queued! Hermes will pick it up within ~2 minutes."
-        : "❌ Failed to trigger scan (GitHub rate limit?). Try again in a minute.",
-      requested_at: new Date().toISOString(),
+    const res = await fetch(endpoint, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: method === "POST" ? payload : undefined,
+      signal: AbortSignal.timeout(15000),
     });
+
+    const data = await res.json();
+    return NextResponse.json(data);
   } catch (error: any) {
     return NextResponse.json({
       ok: false,
-      error: error?.message || "Unknown error",
-    }, { status: 500 });
+      error: error?.message || "Failed to reach trigger server",
+    }, { status: 502 });
   }
 }
 
 export async function GET() {
   try {
-    const sha = await getCurrentSha();
-    const res = await fetch(`${API}?ref=${BRANCH}`, {
-      headers: {
-        "User-Agent": "MTG-Portal/1.0",
-        "Accept": "application/vnd.github.v3+json",
-      },
-    });
-    if (!res.ok) return NextResponse.json({ requested: false, error: "not_found" });
-
+    const res = await fetch(STATUS_URL, { signal: AbortSignal.timeout(5000) });
     const data = await res.json();
-    const decoded = JSON.parse(Buffer.from(data.content, "base64").toString());
-    return NextResponse.json(decoded);
+    return NextResponse.json(data);
   } catch {
-    return NextResponse.json({ requested: false, error: "fetch_failed" });
+    return NextResponse.json({
+      requested: false,
+      error: "trigger_server_unreachable",
+    });
   }
 }
