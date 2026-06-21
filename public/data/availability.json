@@ -1,5 +1,5 @@
 {
-  "scanned_at": "2026-06-21T07:36:34.765116+00:00",
+  "scanned_at": "2026-06-21T07:58:55.503470+00:00",
   "cards": [
     {
       "name": "Forgotten Harvest",
@@ -11,34 +11,11 @@
       "unavailable": []
     },
     {
-      "name": "Undermine",
-      "set": "INV",
-      "target_price": 9.86,
-      "available_count": 1,
-      "total_matches": 1,
-      "available": [
-        {
-          "store": "Face to Face Games",
-          "store_domain": "www.facetofacegames.com",
-          "currency": "CAD",
-          "title": "Undermine [282] [Invasion] [Foil]",
-          "price": 172.49,
-          "available": true,
-          "condition": "PL",
-          "variant_id": 51734479176052,
-          "quantity": 0,
-          "product_url": "https://www.facetofacegames.com/products/undermine-282-invasion-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1"
-        }
-      ],
-      "unavailable": []
-    },
-    {
       "name": "Barbed Field",
       "set": "PCY",
       "target_price": 0.21,
-      "available_count": 2,
-      "total_matches": 2,
+      "available_count": 3,
+      "total_matches": 3,
       "available": [
         {
           "store": "Face to Face Games",
@@ -65,6 +42,42 @@
           "quantity": 2,
           "product_url": "https://store.401games.ca/products/barbed-field-foil-pcy",
           "cart_url": "https://store.401games.ca/cart/29363203276875:1"
+        },
+        {
+          "store": "Game Knight",
+          "store_domain": "gameknight.ca",
+          "currency": "CAD",
+          "title": "Barbed Field [Prophecy]",
+          "price": 0.45,
+          "available": true,
+          "condition": "Lightly Played Foil",
+          "variant_id": 34532838342700,
+          "quantity": 0,
+          "product_url": "https://gameknight.ca/products/barbed-field-prophecy",
+          "cart_url": "https://gameknight.ca/cart/34532838342700:1"
+        }
+      ],
+      "unavailable": []
+    },
+    {
+      "name": "Undermine",
+      "set": "INV",
+      "target_price": 9.86,
+      "available_count": 1,
+      "total_matches": 1,
+      "available": [
+        {
+          "store": "Face to Face Games",
+          "store_domain": "www.facetofacegames.com",
+          "currency": "CAD",
+          "title": "Undermine [282] [Invasion] [Foil]",
+          "price": 172.49,
+          "available": true,
+          "condition": "PL",
+          "variant_id": 51734479176052,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/undermine-282-invasion-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1"
         }
       ],
       "unavailable": []
@@ -73,8 +86,8 @@
       "name": "Utopia Tree",
       "set": "INV",
       "target_price": 2.25,
-      "available_count": 1,
-      "total_matches": 1,
+      "available_count": 2,
+      "total_matches": 2,
       "available": [
         {
           "store": "Face to Face Games",
@@ -88,6 +101,19 @@
           "quantity": 0,
           "product_url": "https://www.facetofacegames.com/products/utopia-tree-277x-ninth-edition-foil",
           "cart_url": "https://www.facetofacegames.com/cart/51731725681012:1"
+        },
+        {
+          "store": "Cardboard Classics",
+          "store_domain": "cardboardclassics.ca",
+          "currency": "CAD",
+          "title": "Utopia Tree [Invasion]",
+          "price": 40.2,
+          "available": true,
+          "condition": "Near Mint Foil",
+          "variant_id": 32299575083078,
+          "quantity": 0,
+          "product_url": "https://cardboardclassics.ca/products/utopia-tree-invasion",
+          "cart_url": "https://cardboardclassics.ca/cart/32299575083078:1"
         }
       ],
       "unavailable": []
@@ -96,8 +122,8 @@
       "name": "Wheel and Deal",
       "set": "ONS",
       "target_price": 26.4,
-      "available_count": 2,
-      "total_matches": 2,
+      "available_count": 3,
+      "total_matches": 3,
       "available": [
         {
           "store": "Face to Face Games",
@@ -124,6 +150,19 @@
           "quantity": 3,
           "product_url": "https://store.401games.ca/products/wheel-and-deal-foil-ons",
           "cart_url": "https://store.401games.ca/cart/30198246178891:1"
+        },
+        {
+          "store": "Level Up Games",
+          "store_domain": "levelupgames.ca",
+          "currency": "CAD",
+          "title": "Wheel and Deal (Halo Foil) [Secret Lair Drop Series]",
+          "price": 23.99,
+          "available": true,
+          "condition": "Near Mint Foil",
+          "variant_id": 43938452930734,
+          "quantity": 0,
+          "product_url": "https://levelupgames.ca/products/wheel-and-deal-halo-foil-secret-lair-drop-series",
+          "cart_url": "https://levelupgames.ca/cart/43938452930734:1"
         }
       ],
       "unavailable": []
@@ -165,20 +204,11 @@
       "unavailable": []
     },
     {
-      "name": "Weatherseed Treefolk",
-      "set": "ULG",
-      "target_price": 43.0,
-      "available_count": 0,
-      "total_matches": 0,
-      "available": [],
-      "unavailable": []
-    },
-    {
       "name": "Faces of the Past",
       "set": "SCG",
       "target_price": 27.52,
-      "available_count": 2,
-      "total_matches": 2,
+      "available_count": 3,
+      "total_matches": 3,
       "available": [
         {
           "store": "Face to Face Games",
@@ -205,8 +235,30 @@
           "quantity": 5,
           "product_url": "https://store.401games.ca/products/faces-of-the-past-foil-scg",
           "cart_url": "https://store.401games.ca/cart/30224528408651:1"
+        },
+        {
+          "store": "Game Knight",
+          "store_domain": "gameknight.ca",
+          "currency": "CAD",
+          "title": "Faces of the Past [Scourge]",
+          "price": 38.6,
+          "available": true,
+          "condition": "Lightly Played Foil",
+          "variant_id": 34532342693932,
+          "quantity": 0,
+          "product_url": "https://gameknight.ca/products/faces-of-the-past-scourge",
+          "cart_url": "https://gameknight.ca/cart/34532342693932:1"
         }
       ],
+      "unavailable": []
+    },
+    {
+      "name": "Weatherseed Treefolk",
+      "set": "ULG",
+      "target_price": 43.0,
+      "available_count": 0,
+      "total_matches": 0,
+      "available": [],
       "unavailable": []
     },
     {
@@ -236,8 +288,8 @@
       "name": "Xantid Swarm",
       "set": "SCG",
       "target_price": 21.99,
-      "available_count": 1,
-      "total_matches": 1,
+      "available_count": 2,
+      "total_matches": 2,
       "available": [
         {
           "store": "Face to Face Games",
@@ -251,6 +303,19 @@
           "quantity": 0,
           "product_url": "https://www.facetofacegames.com/products/xantid-swarm-193-eternal-masters-foil",
           "cart_url": "https://www.facetofacegames.com/cart/51733863235956:1"
+        },
+        {
+          "store": "Gamezilla",
+          "store_domain": "gamezilla.ca",
+          "currency": "CAD",
+          "title": "Xantid Swarm [Scourge]",
+          "price": 125.1,
+          "available": true,
+          "condition": "LP Saint John Foil",
+          "variant_id": 39830008201425,
+          "quantity": 0,
+          "product_url": "https://gamezilla.ca/products/xantid-swarm-scourge",
+          "cart_url": "https://gamezilla.ca/cart/39830008201425:1"
         }
       ],
       "unavailable": []
@@ -282,8 +347,8 @@
       "name": "Endbringer's Revel",
       "set": "PCY",
       "target_price": 0.33,
-      "available_count": 2,
-      "total_matches": 2,
+      "available_count": 3,
+      "total_matches": 3,
       "available": [
         {
           "store": "Face to Face Games",
@@ -310,6 +375,81 @@
           "quantity": 1,
           "product_url": "https://store.401games.ca/products/endbringers-revel-foil-pcy",
           "cart_url": "https://store.401games.ca/cart/46242219458747:1"
+        },
+        {
+          "store": "Game Knight",
+          "store_domain": "gameknight.ca",
+          "currency": "CAD",
+          "title": "Endbringer's Revel [Prophecy]",
+          "price": 0.2,
+          "available": true,
+          "condition": "Damaged Foil",
+          "variant_id": 34538551836716,
+          "quantity": 0,
+          "product_url": "https://gameknight.ca/products/endbringers-revel-prophecy",
+          "cart_url": "https://gameknight.ca/cart/34538551836716:1"
+        }
+      ],
+      "unavailable": []
+    },
+    {
+      "name": "Rhox",
+      "set": "S00",
+      "target_price": 0.91,
+      "available_count": 4,
+      "total_matches": 4,
+      "available": [
+        {
+          "store": "Face to Face Games",
+          "store_domain": "www.facetofacegames.com",
+          "currency": "CAD",
+          "title": "Rhox [43] [Starter 2000] [Foil]",
+          "price": 1.19,
+          "available": true,
+          "condition": "PL",
+          "variant_id": 51738399146356,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/rhox-43-starter-2000-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51738399146356:1"
+        },
+        {
+          "store": "Hairy Tarantula",
+          "store_domain": "hairytarantula.com",
+          "currency": "CAD",
+          "title": "Rhox [Mystery Booster]",
+          "price": 0.49,
+          "available": true,
+          "condition": "Near Mint Foil",
+          "variant_id": 37433509019853,
+          "quantity": 0,
+          "product_url": "https://hairytarantula.com/products/rhox-mystery-booster-retail-edition-foils",
+          "cart_url": "https://hairytarantula.com/cart/37433509019853:1"
+        },
+        {
+          "store": "Gamezilla",
+          "store_domain": "gamezilla.ca",
+          "currency": "CAD",
+          "title": "Rhox [Mystery Booster]",
+          "price": 1.99,
+          "available": true,
+          "condition": "NM Saint John Foil",
+          "variant_id": 39834550960337,
+          "quantity": 0,
+          "product_url": "https://gamezilla.ca/products/rhox-mystery-booster-retail-edition-foils",
+          "cart_url": "https://gamezilla.ca/cart/39834550960337:1"
+        },
+        {
+          "store": "Game Knight",
+          "store_domain": "gameknight.ca",
+          "currency": "CAD",
+          "title": "Rhox [Mystery Booster]",
+          "price": 1.0,
+          "available": true,
+          "condition": "Near Mint Foil",
+          "variant_id": 34543456878636,
+          "quantity": 0,
+          "product_url": "https://gameknight.ca/products/rhox-mystery-booster-retail-edition-foils",
+          "cart_url": "https://gameknight.ca/cart/34543456878636:1"
         }
       ],
       "unavailable": []
@@ -359,40 +499,9 @@
         }
       ],
       "unavailable": []
-    },
-    {
-      "name": "Rhox",
-      "set": "S00",
-      "target_price": 0.91,
-      "available_count": 1,
-      "total_matches": 1,
-      "available": [
-        {
-          "store": "Face to Face Games",
-          "store_domain": "www.facetofacegames.com",
-          "currency": "CAD",
-          "title": "Rhox [10E-291] [The List] [Foil]",
-          "price": 0.49,
-          "available": true,
-          "condition": "NM",
-          "variant_id": 51737368985972,
-          "quantity": 0,
-          "product_url": "https://www.facetofacegames.com/products/rhox-10e-291-the-list-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51737368985972:1"
-        }
-      ],
-      "unavailable": []
     }
   ],
   "cartable": [
-    {
-      "name": "Undermine",
-      "set": "INV",
-      "store": "Face to Face Games",
-      "price": 172.49,
-      "variant_id": 51734479176052,
-      "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1"
-    },
     {
       "name": "Barbed Field",
       "set": "PCY",
@@ -410,12 +519,36 @@
       "cart_url": "https://store.401games.ca/cart/29363203276875:1"
     },
     {
+      "name": "Barbed Field",
+      "set": "PCY",
+      "store": "Game Knight",
+      "price": 0.45,
+      "variant_id": 34532838342700,
+      "cart_url": "https://gameknight.ca/cart/34532838342700:1"
+    },
+    {
+      "name": "Undermine",
+      "set": "INV",
+      "store": "Face to Face Games",
+      "price": 172.49,
+      "variant_id": 51734479176052,
+      "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1"
+    },
+    {
       "name": "Utopia Tree",
       "set": "INV",
       "store": "Face to Face Games",
       "price": 23.99,
       "variant_id": 51731725681012,
       "cart_url": "https://www.facetofacegames.com/cart/51731725681012:1"
+    },
+    {
+      "name": "Utopia Tree",
+      "set": "INV",
+      "store": "Cardboard Classics",
+      "price": 40.2,
+      "variant_id": 32299575083078,
+      "cart_url": "https://cardboardclassics.ca/cart/32299575083078:1"
     },
     {
       "name": "Wheel and Deal",
@@ -432,6 +565,14 @@
       "price": 38.7,
       "variant_id": 30198246178891,
       "cart_url": "https://store.401games.ca/cart/30198246178891:1"
+    },
+    {
+      "name": "Wheel and Deal",
+      "set": "ONS",
+      "store": "Level Up Games",
+      "price": 23.99,
+      "variant_id": 43938452930734,
+      "cart_url": "https://levelupgames.ca/cart/43938452930734:1"
     },
     {
       "name": "Mana Vapors",
@@ -466,6 +607,14 @@
       "cart_url": "https://store.401games.ca/cart/30224528408651:1"
     },
     {
+      "name": "Faces of the Past",
+      "set": "SCG",
+      "store": "Game Knight",
+      "price": 38.6,
+      "variant_id": 34532342693932,
+      "cart_url": "https://gameknight.ca/cart/34532342693932:1"
+    },
+    {
       "name": "Close Quarters",
       "set": "MMQ",
       "store": "Face to Face Games",
@@ -480,6 +629,14 @@
       "price": 10.99,
       "variant_id": 51733863235956,
       "cart_url": "https://www.facetofacegames.com/cart/51733863235956:1"
+    },
+    {
+      "name": "Xantid Swarm",
+      "set": "SCG",
+      "store": "Gamezilla",
+      "price": 125.1,
+      "variant_id": 39830008201425,
+      "cart_url": "https://gamezilla.ca/cart/39830008201425:1"
     },
     {
       "name": "Infected Vermin",
@@ -506,6 +663,46 @@
       "cart_url": "https://store.401games.ca/cart/46242219458747:1"
     },
     {
+      "name": "Endbringer's Revel",
+      "set": "PCY",
+      "store": "Game Knight",
+      "price": 0.2,
+      "variant_id": 34538551836716,
+      "cart_url": "https://gameknight.ca/cart/34538551836716:1"
+    },
+    {
+      "name": "Rhox",
+      "set": "S00",
+      "store": "Face to Face Games",
+      "price": 1.19,
+      "variant_id": 51738399146356,
+      "cart_url": "https://www.facetofacegames.com/cart/51738399146356:1"
+    },
+    {
+      "name": "Rhox",
+      "set": "S00",
+      "store": "Hairy Tarantula",
+      "price": 0.49,
+      "variant_id": 37433509019853,
+      "cart_url": "https://hairytarantula.com/cart/37433509019853:1"
+    },
+    {
+      "name": "Rhox",
+      "set": "S00",
+      "store": "Gamezilla",
+      "price": 1.99,
+      "variant_id": 39834550960337,
+      "cart_url": "https://gamezilla.ca/cart/39834550960337:1"
+    },
+    {
+      "name": "Rhox",
+      "set": "S00",
+      "store": "Game Knight",
+      "price": 1.0,
+      "variant_id": 34543456878636,
+      "cart_url": "https://gameknight.ca/cart/34543456878636:1"
+    },
+    {
       "name": "Skirk Marauder",
       "set": "LGN",
       "store": "Face to Face Games",
@@ -520,23 +717,20 @@
       "price": 0.99,
       "variant_id": 51736493621620,
       "cart_url": "https://www.facetofacegames.com/cart/51736493621620:1"
-    },
-    {
-      "name": "Rhox",
-      "set": "S00",
-      "store": "Face to Face Games",
-      "price": 0.49,
-      "variant_id": 51737368985972,
-      "cart_url": "https://www.facetofacegames.com/cart/51737368985972:1"
     }
   ],
   "summary": {
     "total_cards_scanned": 15,
-    "total_available_listings": 18,
+    "total_available_listings": 27,
     "total_out_of_stock": 0,
     "stores_with_stock": {
       "Face to Face Games": 13,
-      "401 Games": 5
+      "401 Games": 5,
+      "Game Knight": 4,
+      "Cardboard Classics": 1,
+      "Level Up Games": 1,
+      "Gamezilla": 2,
+      "Hairy Tarantula": 1
     }
   },
   "store_carts": [
@@ -544,9 +738,9 @@
       "store": "Face to Face Games",
       "domain": "www.facetofacegames.com",
       "item_count": 13,
-      "total": 286.47,
-      "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1,51737066996084:1,51731725681012:1,51738540015988:1,51737064341876:1,51738441482612:1,51736211259764:1,51733863235956:1,51736602607988:1,51737064407412:1,51735034495348:1,51736493621620:1,51737368985972:1",
-      "checkout_url": "https://www.facetofacegames.com/cart/51734479176052:1,51737066996084:1,51731725681012:1,51738540015988:1,51737064341876:1,51738441482612:1,51736211259764:1,51733863235956:1,51736602607988:1,51737064407412:1,51735034495348:1,51736493621620:1,51737368985972:1"
+      "total": 287.17,
+      "cart_url": "https://www.facetofacegames.com/cart/51737066996084:1,51734479176052:1,51731725681012:1,51738540015988:1,51737064341876:1,51738441482612:1,51736211259764:1,51733863235956:1,51736602607988:1,51737064407412:1,51738399146356:1,51735034495348:1,51736493621620:1",
+      "checkout_url": "https://www.facetofacegames.com/cart/51737066996084:1,51734479176052:1,51731725681012:1,51738540015988:1,51737064341876:1,51738441482612:1,51736211259764:1,51733863235956:1,51736602607988:1,51737064407412:1,51738399146356:1,51735034495348:1,51736493621620:1"
     },
     {
       "store": "401 Games",
@@ -555,6 +749,46 @@
       "total": 76.28000000000002,
       "cart_url": "https://store.401games.ca/cart/29363203276875:1,30198246178891:1,46242217492667:1,30224528408651:1,46242219458747:1",
       "checkout_url": "https://store.401games.ca/cart/29363203276875:1,30198246178891:1,46242217492667:1,30224528408651:1,46242219458747:1"
+    },
+    {
+      "store": "Hairy Tarantula",
+      "domain": "hairytarantula.com",
+      "item_count": 1,
+      "total": 0.49,
+      "cart_url": "https://hairytarantula.com/cart/37433509019853:1",
+      "checkout_url": "https://hairytarantula.com/cart/37433509019853:1"
+    },
+    {
+      "store": "Cardboard Classics",
+      "domain": "cardboardclassics.ca",
+      "item_count": 1,
+      "total": 40.2,
+      "cart_url": "https://cardboardclassics.ca/cart/32299575083078:1",
+      "checkout_url": "https://cardboardclassics.ca/cart/32299575083078:1"
+    },
+    {
+      "store": "Gamezilla",
+      "domain": "gamezilla.ca",
+      "item_count": 2,
+      "total": 127.08999999999999,
+      "cart_url": "https://gamezilla.ca/cart/39830008201425:1,39834550960337:1",
+      "checkout_url": "https://gamezilla.ca/cart/39830008201425:1,39834550960337:1"
+    },
+    {
+      "store": "Level Up Games",
+      "domain": "levelupgames.ca",
+      "item_count": 1,
+      "total": 23.99,
+      "cart_url": "https://levelupgames.ca/cart/43938452930734:1",
+      "checkout_url": "https://levelupgames.ca/cart/43938452930734:1"
+    },
+    {
+      "store": "Game Knight",
+      "domain": "gameknight.ca",
+      "item_count": 4,
+      "total": 40.25000000000001,
+      "cart_url": "https://gameknight.ca/cart/34532838342700:1,34532342693932:1,34538551836716:1,34543456878636:1",
+      "checkout_url": "https://gameknight.ca/cart/34532838342700:1,34532342693932:1,34538551836716:1,34543456878636:1"
     }
   ]
 }

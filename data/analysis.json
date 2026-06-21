@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:09:27.088145+00:00",
+  "generated_at": "2026-06-21T07:58:55.220710+00:00",
   "total_analyzed": 2552,
   "top_picks": [
     {
@@ -9,6 +9,8 @@
       "set_name": "Prophecy",
       "rarity": "rare",
       "foil_price": 0.01,
+      "foil_price_cad": 0.01,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.23,
       "foil_premium": 0.04,
       "composite_score": 0.63,
@@ -34,11 +36,46 @@
     },
     {
       "rank": 2,
+      "name": "Barbed Field",
+      "set": "PCY",
+      "set_name": "Prophecy",
+      "rarity": "uncommon",
+      "foil_price": 0.21,
+      "foil_price_cad": 0.3,
+      "cad_rate": 1.41,
+      "nonfoil_price": 0.38,
+      "foil_premium": 0.55,
+      "composite_score": 0.605,
+      "ai_signals": {
+        "trend": 0.0,
+        "availability": 0.44999999999999996,
+        "meta_relevance": 0.0
+      },
+      "scryfall_uri": "https://scryfall.com/card/pcy/83/barbed-field?utm_source=api",
+      "type_line": "Enchantment \u2014 Aura",
+      "reasons": [
+        "\ud83d\udcc9 Foil significantly undervalued vs nonfoil",
+        "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
+        "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
+        "\ud83d\udcb0 Only $0.21 \u2014 low cost, high upside",
+        "\ud83d\uded2 Available at 3 store(s) now"
+      ],
+      "purchase_links": {
+        "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Barbed%20Field%20mtg%20foil%20pcy&LH_BIN=1&LH_PrefLoc=1&_sop=15",
+        "facetoface": "https://www.facetofacegames.com/catalogsearch/result/?q=Barbed%20Field",
+        "401games": "https://401games.ca/search?type=product&q=Barbed%20Field",
+        "wizardstower": "https://www.wizardstower.com/search?q=Barbed%20Field+foil"
+      }
+    },
+    {
+      "rank": 3,
       "name": "Undermine",
       "set": "INV",
       "set_name": "Invasion",
       "rarity": "rare",
       "foil_price": 9.86,
+      "foil_price_cad": 13.9,
+      "cad_rate": 1.41,
       "nonfoil_price": 8.72,
       "foil_premium": 1.13,
       "composite_score": 0.595,
@@ -63,49 +100,20 @@
       }
     },
     {
-      "rank": 3,
-      "name": "Barbed Field",
-      "set": "PCY",
-      "set_name": "Prophecy",
-      "rarity": "uncommon",
-      "foil_price": 0.21,
-      "nonfoil_price": 0.38,
-      "foil_premium": 0.55,
-      "composite_score": 0.59,
-      "ai_signals": {
-        "trend": 0.0,
-        "availability": 0.3,
-        "meta_relevance": 0.0
-      },
-      "scryfall_uri": "https://scryfall.com/card/pcy/83/barbed-field?utm_source=api",
-      "type_line": "Enchantment \u2014 Aura",
-      "reasons": [
-        "\ud83d\udcc9 Foil significantly undervalued vs nonfoil",
-        "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
-        "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
-        "\ud83d\udcb0 Only $0.21 \u2014 low cost, high upside",
-        "\ud83d\uded2 Available at 2 store(s) now"
-      ],
-      "purchase_links": {
-        "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Barbed%20Field%20mtg%20foil%20pcy&LH_BIN=1&LH_PrefLoc=1&_sop=15",
-        "facetoface": "https://www.facetofacegames.com/catalogsearch/result/?q=Barbed%20Field",
-        "401games": "https://401games.ca/search?type=product&q=Barbed%20Field",
-        "wizardstower": "https://www.wizardstower.com/search?q=Barbed%20Field+foil"
-      }
-    },
-    {
       "rank": 4,
       "name": "Utopia Tree",
       "set": "INV",
       "set_name": "Invasion",
       "rarity": "rare",
       "foil_price": 2.25,
+      "foil_price_cad": 3.17,
+      "cad_rate": 1.41,
       "nonfoil_price": 2.53,
       "foil_premium": 0.89,
-      "composite_score": 0.565,
+      "composite_score": 0.58,
       "ai_signals": {
         "trend": 0.0,
-        "availability": 0.15,
+        "availability": 0.3,
         "meta_relevance": 0.0
       },
       "scryfall_uri": "https://scryfall.com/card/inv/219/utopia-tree?utm_source=api",
@@ -114,7 +122,7 @@
         "\ud83d\udcc9 Foil significantly undervalued vs nonfoil",
         "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
         "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
-        "\ud83d\uded2 Available at 1 store(s) now"
+        "\ud83d\uded2 Available at 2 store(s) now"
       ],
       "purchase_links": {
         "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Utopia%20Tree%20mtg%20foil%20inv&LH_BIN=1&LH_PrefLoc=1&_sop=15",
@@ -130,12 +138,14 @@
       "set_name": "Onslaught",
       "rarity": "rare",
       "foil_price": 26.4,
+      "foil_price_cad": 37.22,
+      "cad_rate": 1.41,
       "nonfoil_price": 16.74,
       "foil_premium": 1.58,
-      "composite_score": 0.555,
+      "composite_score": 0.57,
       "ai_signals": {
         "trend": 0.0,
-        "availability": 0.3,
+        "availability": 0.44999999999999996,
         "meta_relevance": 0.1
       },
       "scryfall_uri": "https://scryfall.com/card/ons/121/wheel-and-deal?utm_source=api",
@@ -143,7 +153,7 @@
       "reasons": [
         "\ud83d\udcc9 Foil significantly undervalued vs nonfoil",
         "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
-        "\ud83d\uded2 Available at 2 store(s) now",
+        "\ud83d\uded2 Available at 3 store(s) now",
         "\u2694\ufe0f Played in pre-modern meta \u2014 real demand"
       ],
       "purchase_links": {
@@ -160,6 +170,8 @@
       "set_name": "Prophecy",
       "rarity": "uncommon",
       "foil_price": 0.5,
+      "foil_price_cad": 0.7,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.35,
       "foil_premium": 1.43,
       "composite_score": 0.545,
@@ -186,41 +198,13 @@
     },
     {
       "rank": 7,
-      "name": "Weatherseed Treefolk",
-      "set": "ULG",
-      "set_name": "Urza's Legacy",
-      "rarity": "rare",
-      "foil_price": 43.0,
-      "nonfoil_price": 1.53,
-      "foil_premium": 28.1,
-      "composite_score": 0.545,
-      "ai_signals": {
-        "trend": 0.0,
-        "availability": 0.15,
-        "meta_relevance": 0.0
-      },
-      "scryfall_uri": "https://scryfall.com/card/ulg/116/weatherseed-treefolk?utm_source=api",
-      "type_line": "Creature \u2014 Treefolk",
-      "reasons": [
-        "\ud83d\udd12 Reserved List \u2014 will never be reprinted",
-        "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
-        "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
-        "\ud83d\uded2 Available at 1 store(s) now"
-      ],
-      "purchase_links": {
-        "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Weatherseed%20Treefolk%20mtg%20foil%20ulg&LH_BIN=1&LH_PrefLoc=1&_sop=15",
-        "facetoface": "https://www.facetofacegames.com/catalogsearch/result/?q=Weatherseed%20Treefolk",
-        "401games": "https://401games.ca/search?type=product&q=Weatherseed%20Treefolk",
-        "wizardstower": "https://www.wizardstower.com/search?q=Weatherseed%20Treefolk+foil"
-      }
-    },
-    {
-      "rank": 8,
       "name": "Faces of the Past",
       "set": "SCG",
       "set_name": "Scourge",
       "rarity": "rare",
       "foil_price": 27.52,
+      "foil_price_cad": 38.8,
+      "cad_rate": 1.41,
       "nonfoil_price": 14.59,
       "foil_premium": 1.89,
       "composite_score": 0.535,
@@ -245,12 +229,45 @@
       }
     },
     {
+      "rank": 8,
+      "name": "Weatherseed Treefolk",
+      "set": "ULG",
+      "set_name": "Urza's Legacy",
+      "rarity": "rare",
+      "foil_price": 43.0,
+      "foil_price_cad": 60.63,
+      "cad_rate": 1.41,
+      "nonfoil_price": 1.53,
+      "foil_premium": 28.1,
+      "composite_score": 0.53,
+      "ai_signals": {
+        "trend": 0.0,
+        "availability": 0.0,
+        "meta_relevance": 0.0
+      },
+      "scryfall_uri": "https://scryfall.com/card/ulg/116/weatherseed-treefolk?utm_source=api",
+      "type_line": "Creature \u2014 Treefolk",
+      "reasons": [
+        "\ud83d\udd12 Reserved List \u2014 will never be reprinted",
+        "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
+        "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity"
+      ],
+      "purchase_links": {
+        "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Weatherseed%20Treefolk%20mtg%20foil%20ulg&LH_BIN=1&LH_PrefLoc=1&_sop=15",
+        "facetoface": "https://www.facetofacegames.com/catalogsearch/result/?q=Weatherseed%20Treefolk",
+        "401games": "https://401games.ca/search?type=product&q=Weatherseed%20Treefolk",
+        "wizardstower": "https://www.wizardstower.com/search?q=Weatherseed%20Treefolk+foil"
+      }
+    },
+    {
       "rank": 9,
       "name": "Close Quarters",
       "set": "MMQ",
       "set_name": "Mercadian Masques",
       "rarity": "uncommon",
       "foil_price": 0.39,
+      "foil_price_cad": 0.55,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.31,
       "foil_premium": 1.26,
       "composite_score": 0.515,
@@ -282,12 +299,14 @@
       "set_name": "Scourge",
       "rarity": "rare",
       "foil_price": 21.99,
+      "foil_price_cad": 31.01,
+      "cad_rate": 1.41,
       "nonfoil_price": 13.89,
       "foil_premium": 1.58,
-      "composite_score": 0.49,
+      "composite_score": 0.505,
       "ai_signals": {
         "trend": 0.0,
-        "availability": 0.15,
+        "availability": 0.3,
         "meta_relevance": 0.0
       },
       "scryfall_uri": "https://scryfall.com/card/scg/135/xantid-swarm?utm_source=api",
@@ -295,7 +314,7 @@
       "reasons": [
         "\ud83d\udcc9 Foil significantly undervalued vs nonfoil",
         "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
-        "\ud83d\uded2 Available at 1 store(s) now"
+        "\ud83d\uded2 Available at 2 store(s) now"
       ],
       "purchase_links": {
         "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Xantid%20Swarm%20mtg%20foil%20scg&LH_BIN=1&LH_PrefLoc=1&_sop=15",
@@ -313,6 +332,8 @@
       "set_name": "Prophecy",
       "rarity": "rare",
       "foil_price": 0.01,
+      "foil_price_cad": 0.01,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.23,
       "foil_premium": 0.04,
       "composite_score": 0.82,
@@ -343,12 +364,14 @@
       "set_name": "Prophecy",
       "rarity": "uncommon",
       "foil_price": 0.21,
+      "foil_price_cad": 0.3,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.38,
       "foil_premium": 0.55,
-      "composite_score": 0.755,
+      "composite_score": 0.77,
       "ai_signals": {
         "trend": 0.0,
-        "availability": 0.3,
+        "availability": 0.44999999999999996,
         "meta_relevance": 0.0
       },
       "scryfall_uri": "https://scryfall.com/card/pcy/83/barbed-field?utm_source=api",
@@ -358,7 +381,7 @@
         "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
         "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
         "\ud83d\udcb0 Only $0.21 \u2014 low cost, high upside",
-        "\ud83d\uded2 Available at 2 store(s) now"
+        "\ud83d\uded2 Available at 3 store(s) now"
       ],
       "purchase_links": {
         "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Barbed%20Field%20mtg%20foil%20pcy&LH_BIN=1&LH_PrefLoc=1&_sop=15",
@@ -374,12 +397,14 @@
       "set_name": "Invasion",
       "rarity": "rare",
       "foil_price": 2.25,
+      "foil_price_cad": 3.17,
+      "cad_rate": 1.41,
       "nonfoil_price": 2.53,
       "foil_premium": 0.89,
-      "composite_score": 0.73,
+      "composite_score": 0.745,
       "ai_signals": {
         "trend": 0.0,
-        "availability": 0.15,
+        "availability": 0.3,
         "meta_relevance": 0.0
       },
       "scryfall_uri": "https://scryfall.com/card/inv/219/utopia-tree?utm_source=api",
@@ -388,7 +413,7 @@
         "\ud83d\udcc9 Foil significantly undervalued vs nonfoil",
         "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
         "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
-        "\ud83d\uded2 Available at 1 store(s) now"
+        "\ud83d\uded2 Available at 2 store(s) now"
       ],
       "purchase_links": {
         "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Utopia%20Tree%20mtg%20foil%20inv&LH_BIN=1&LH_PrefLoc=1&_sop=15",
@@ -404,6 +429,8 @@
       "set_name": "Prophecy",
       "rarity": "uncommon",
       "foil_price": 0.5,
+      "foil_price_cad": 0.7,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.35,
       "foil_premium": 1.43,
       "composite_score": 0.68,
@@ -435,6 +462,8 @@
       "set_name": "Mercadian Masques",
       "rarity": "uncommon",
       "foil_price": 0.39,
+      "foil_price_cad": 0.55,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.31,
       "foil_premium": 1.26,
       "composite_score": 0.665,
@@ -466,6 +495,8 @@
       "set_name": "Odyssey",
       "rarity": "uncommon",
       "foil_price": 0.3,
+      "foil_price_cad": 0.42,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.42,
       "foil_premium": 0.71,
       "composite_score": 0.65,
@@ -495,12 +526,14 @@
       "set_name": "Prophecy",
       "rarity": "uncommon",
       "foil_price": 0.33,
+      "foil_price_cad": 0.47,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.19,
       "foil_premium": 1.74,
-      "composite_score": 0.58,
+      "composite_score": 0.595,
       "ai_signals": {
         "trend": 0.0,
-        "availability": 0.3,
+        "availability": 0.44999999999999996,
         "meta_relevance": 0.0
       },
       "scryfall_uri": "https://scryfall.com/card/pcy/63/endbringers-revel?utm_source=api",
@@ -510,7 +543,7 @@
         "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
         "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
         "\ud83d\udcb0 Only $0.33 \u2014 low cost, high upside",
-        "\ud83d\uded2 Available at 2 store(s) now"
+        "\ud83d\uded2 Available at 3 store(s) now"
       ],
       "purchase_links": {
         "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Endbringer%27s%20Revel%20mtg%20foil%20pcy&LH_BIN=1&LH_PrefLoc=1&_sop=15",
@@ -521,11 +554,46 @@
     },
     {
       "rank": 8,
+      "name": "Rhox",
+      "set": "S00",
+      "set_name": "Starter 2000",
+      "rarity": "rare",
+      "foil_price": 0.91,
+      "foil_price_cad": 1.28,
+      "cad_rate": 1.41,
+      "nonfoil_price": null,
+      "foil_premium": "N/A",
+      "composite_score": 0.57,
+      "ai_signals": {
+        "trend": 0.0,
+        "availability": 0.5,
+        "meta_relevance": 0.0
+      },
+      "scryfall_uri": "https://scryfall.com/card/s00/43/rhox?utm_source=api",
+      "type_line": "Creature \u2014 Rhino Beast",
+      "reasons": [
+        "\ud83d\udcc9 Foil undervalued vs nonfoil",
+        "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
+        "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
+        "\ud83d\udcb0 Only $0.91 \u2014 low cost, high upside",
+        "\ud83d\uded2 Available at 3 store(s) now"
+      ],
+      "purchase_links": {
+        "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Rhox%20mtg%20foil%20s00&LH_BIN=1&LH_PrefLoc=1&_sop=15",
+        "facetoface": "https://www.facetofacegames.com/catalogsearch/result/?q=Rhox",
+        "401games": "https://401games.ca/search?type=product&q=Rhox",
+        "wizardstower": "https://www.wizardstower.com/search?q=Rhox+foil"
+      }
+    },
+    {
+      "rank": 9,
       "name": "Skirk Marauder",
       "set": "LGN",
       "set_name": "Legions",
       "rarity": "common",
       "foil_price": 0.08,
+      "foil_price_cad": 0.11,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.12,
       "foil_premium": 0.67,
       "composite_score": 0.55,
@@ -549,12 +617,14 @@
       }
     },
     {
-      "rank": 9,
+      "rank": 10,
       "name": "Stronghold Zeppelin",
       "set": "NEM",
       "set_name": "Nemesis",
       "rarity": "uncommon",
       "foil_price": 0.25,
+      "foil_price_cad": 0.35,
+      "cad_rate": 1.41,
       "nonfoil_price": 0.16,
       "foil_premium": 1.56,
       "composite_score": 0.535,
@@ -578,43 +648,12 @@
         "401games": "https://401games.ca/search?type=product&q=Stronghold%20Zeppelin",
         "wizardstower": "https://www.wizardstower.com/search?q=Stronghold%20Zeppelin+foil"
       }
-    },
-    {
-      "rank": 10,
-      "name": "Rhox",
-      "set": "S00",
-      "set_name": "Starter 2000",
-      "rarity": "rare",
-      "foil_price": 0.91,
-      "nonfoil_price": null,
-      "foil_premium": "N/A",
-      "composite_score": 0.535,
-      "ai_signals": {
-        "trend": 0.0,
-        "availability": 0.15,
-        "meta_relevance": 0.0
-      },
-      "scryfall_uri": "https://scryfall.com/card/s00/43/rhox?utm_source=api",
-      "type_line": "Creature \u2014 Rhino Beast",
-      "reasons": [
-        "\ud83d\udcc9 Foil undervalued vs nonfoil",
-        "\ud83d\udc8e High scarcity \u2014 rare/mythic from low-print set",
-        "\ud83d\udcc5 Early foil era (1999-2000) \u2014 genuine scarcity",
-        "\ud83d\udcb0 Only $0.91 \u2014 low cost, high upside",
-        "\ud83d\uded2 Available at 1 store(s) now"
-      ],
-      "purchase_links": {
-        "ebay_ca": "https://www.ebay.ca/sch/i.html?_nkw=Rhox%20mtg%20foil%20s00&LH_BIN=1&LH_PrefLoc=1&_sop=15",
-        "facetoface": "https://www.facetofacegames.com/catalogsearch/result/?q=Rhox",
-        "401games": "https://401games.ca/search?type=product&q=Rhox",
-        "wizardstower": "https://www.wizardstower.com/search?q=Rhox+foil"
-      }
     }
   ],
   "summary": {
     "total_cards_under_50": 2552,
     "total_under_5": 1475,
-    "avg_score_top_10": 0.5565,
+    "avg_score_top_10": 0.561,
     "avg_price_top_10": 13.21,
     "avg_price_cheap_10": 0.52,
     "cheapest_pick": 0.01
