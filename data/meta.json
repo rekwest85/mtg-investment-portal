@@ -1,0 +1,117 @@
+{
+  "source": "MTGTop8 Pre-Modern",
+  "date_snapshot": "2026-06-20",
+  "total_decks": 407,
+  "archetypes": {
+    "AGGRO (33%)": [
+      [
+        "Sligh (RDW)",
+        "10%"
+      ],
+      [
+        "Goblins",
+        "5%"
+      ],
+      [
+        "Terrageddon",
+        "4%"
+      ],
+      [
+        "Mono Black Aggro",
+        "4%"
+      ],
+      [
+        "RG Aggro",
+        "4%"
+      ],
+      [
+        "Elves",
+        "2%"
+      ],
+      [
+        "Madness / Threshold",
+        "1%"
+      ]
+    ],
+    "CONTROL (26%)": [
+      [
+        "Landstill (UW Control)",
+        "5%"
+      ],
+      [
+        "Oath of Druids",
+        "4%"
+      ],
+      [
+        "Survival",
+        "3%"
+      ],
+      [
+        "Mono Black Control",
+        "3%"
+      ],
+      [
+        "Psychatog",
+        "2%"
+      ],
+      [
+        "BW Control",
+        "2%"
+      ],
+      [
+        "The Rock",
+        "1%"
+      ]
+    ],
+    "COMBO (41%)": [
+      [
+        "Stiflenought",
+        "11%"
+      ],
+      [
+        "Enchantress",
+        "10%"
+      ],
+      [
+        "Replenish",
+        "6%"
+      ],
+      [
+        "Full English Breakfast",
+        "4%"
+      ],
+      [
+        "Stasis",
+        "2%"
+      ],
+      [
+        "Reanimator",
+        "2%"
+      ],
+      [
+        "Mono Blue Storm",
+        "1%"
+      ],
+      [
+        "Aluren",
+        "1%"
+      ]
+    ]
+  },
+  "recent_events": [
+    "Team Trios - Tercera Edici\u00f3n @ Buenos Aires (Jun 13)",
+    "4Seasons Spring Ed. @ Bologna (Jun 13)"
+  ],
+  "most_played_percentages": [
+    "37%",
+    "30%",
+    "25%",
+    "23%",
+    "23%",
+    "22%",
+    "22%",
+    "20%",
+    "20%",
+    "19%"
+  ]
+}

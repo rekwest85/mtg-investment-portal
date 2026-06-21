@@ -1,25 +1,40 @@
 import { NextResponse } from "next/server";
+import path from "path";
 
-const DATA_DIR = "C:\\Users\\boss\\AppData\\Local\\hermes\\cron\\output\\mtg_bot";
+const LOCAL_DIR = "C:\\Users\\boss\\AppData\\Local\\hermes\\cron\\output\\mtg_bot";
 
-function safeRead(fs: any, path: any, filePath: string) {
+function tryRead(filePath: string | null) {
+  if (!filePath) return null;
   try {
-    if (fs.existsSync(filePath)) {
-      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    }
-  } catch {}
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const fs = require("fs") as typeof import("fs");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  } catch {
+    return null;
+  }
+}
+
+function findDataFile(name: string): string | null {
+  const repoDir = path.join(process.cwd(), "data");
+  const localPath = path.join(LOCAL_DIR, name);
+  const repoPath = path.join(repoDir, name);
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const fs = require("fs") as typeof import("fs");
+    if (fs.existsSync(localPath)) return localPath;
+    if (fs.existsSync(repoPath)) return repoPath;
+  } catch {
+    // Ignore
+  }
   return null;
 }
 
 export async function GET() {
   try {
-    const fs = await import("fs");
-    const path = await import("path");
-
-    const analysis = safeRead(fs, path, path.join(DATA_DIR, "analysis.json"));
-    const availability = safeRead(fs, path, path.join(DATA_DIR, "availability.json"));
-    const history = safeRead(fs, path, path.join(DATA_DIR, "price_history.json"));
-    const meta = safeRead(fs, path, path.join(DATA_DIR, "meta.json"));
+    const analysis = tryRead(findDataFile("analysis.json"));
+    const availability = tryRead(findDataFile("availability.json"));
+    const history = tryRead(findDataFile("price_history.json"));
+    const meta = tryRead(findDataFile("meta.json"));
 
     // Build store availability map
     const availMap: Record<string, any[]> = {};
@@ -52,7 +67,6 @@ export async function GET() {
 
       const storeData = availMap[key] || [];
       const histData = historyMap[list.name.toLowerCase()];
-
       let bestStore = null;
       if (storeData.length > 0) {
         let best = storeData[0];
@@ -108,7 +122,7 @@ export async function GET() {
   } catch (error: any) {
     console.error("Data API error:", error?.message || String(error));
     return NextResponse.json(
-      { error: "Failed to load data", detail: error?.message || String(error) },
+      { error: "Failed to load data" },
       { status: 500 }
     );
   }
