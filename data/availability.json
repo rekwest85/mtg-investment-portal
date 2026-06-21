@@ -1,5 +1,5 @@
 {
-  "scanned_at": "2026-06-21T06:44:03.847365+00:00",
+  "scanned_at": "2026-06-21T07:36:34.765116+00:00",
   "cards": [
     {
       "name": "Forgotten Harvest",
@@ -21,13 +21,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Undermine [62] [Duel Decks: Ajani vs. Nicol Bolas] [Non-Foil]",
-          "price": 6.39,
+          "title": "Undermine [282] [Invasion] [Foil]",
+          "price": 172.49,
           "available": true,
           "condition": "PL",
-          "variant_id": 51733334983028,
-          "product_url": "https://www.facetofacegames.com/products/undermine-62-duel-decks-ajani-vs-nicol-bolas-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51733334983028:1"
+          "variant_id": 51734479176052,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/undermine-282-invasion-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1"
         }
       ],
       "unavailable": []
@@ -43,13 +44,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Barbed Field [83] [Prophecy] [Non-Foil]",
-          "price": 0.39,
+          "title": "Barbed Field [83] [Prophecy] [Foil]",
+          "price": 3.19,
           "available": true,
           "condition": "PL",
-          "variant_id": 51737065488756,
-          "product_url": "https://www.facetofacegames.com/products/barbed-field-83-prophecy-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51737065488756:1"
+          "variant_id": 51737066996084,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/barbed-field-83-prophecy-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51737066996084:1"
         },
         {
           "store": "401 Games",
@@ -60,6 +62,7 @@
           "available": true,
           "condition": "MP",
           "variant_id": 29363203276875,
+          "quantity": 2,
           "product_url": "https://store.401games.ca/products/barbed-field-foil-pcy",
           "cart_url": "https://store.401games.ca/cart/29363203276875:1"
         }
@@ -77,35 +80,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Utopia Tree [219] [Invasion] [Non-Foil]",
-          "price": 3.19,
+          "title": "Utopia Tree [277x] [Ninth Edition] [Foil]",
+          "price": 23.99,
           "available": true,
           "condition": "PL",
-          "variant_id": 51734471934324,
-          "product_url": "https://www.facetofacegames.com/products/utopia-tree-219-invasion-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51734471934324:1"
-        }
-      ],
-      "unavailable": []
-    },
-    {
-      "name": "Weatherseed Treefolk",
-      "set": "ULG",
-      "target_price": 43.0,
-      "available_count": 1,
-      "total_matches": 1,
-      "available": [
-        {
-          "store": "Face to Face Games",
-          "store_domain": "www.facetofacegames.com",
-          "currency": "CAD",
-          "title": "Weatherseed Treefolk [116] [Urza's Legacy] [Non-Foil]",
-          "price": 1.59,
-          "available": true,
-          "condition": "PL",
-          "variant_id": 51739653374324,
-          "product_url": "https://www.facetofacegames.com/products/weatherseed-treefolk-116-urzas-legacy-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51739653374324:1"
+          "variant_id": 51731725681012,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/utopia-tree-277x-ninth-edition-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51731725681012:1"
         }
       ],
       "unavailable": []
@@ -121,13 +103,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Wheel and Deal [121] [Onslaught] [Non-Foil]",
-          "price": 22.49,
+          "title": "Wheel and Deal [1262] [Planar Showcase] [Showcase: MOM Vol. 1] [Secret Lair Drop] [Halo Foil]",
+          "price": 26.99,
           "available": true,
-          "condition": "PL",
-          "variant_id": 51736749375860,
-          "product_url": "https://www.facetofacegames.com/products/wheel-and-deal-121-onslaught-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51736749375860:1"
+          "condition": "NM",
+          "variant_id": 51738540015988,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/wheel-and-deal-1262-planar-showcase-showcase-mom-vol-1-secret-lair-drop-halo-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51738540015988:1"
         },
         {
           "store": "401 Games",
@@ -138,6 +121,7 @@
           "available": true,
           "condition": "SP",
           "variant_id": 30198246178891,
+          "quantity": 3,
           "product_url": "https://store.401games.ca/products/wheel-and-deal-foil-ons",
           "cart_url": "https://store.401games.ca/cart/30198246178891:1"
         }
@@ -160,6 +144,7 @@
           "available": true,
           "condition": "PL",
           "variant_id": 51737064341876,
+          "quantity": 0,
           "product_url": "https://www.facetofacegames.com/products/mana-vapors-38-prophecy-foil",
           "cart_url": "https://www.facetofacegames.com/cart/51737064341876:1"
         },
@@ -172,8 +157,54 @@
           "available": true,
           "condition": "HP",
           "variant_id": 46242217492667,
+          "quantity": 2,
           "product_url": "https://store.401games.ca/products/mana-vapors-foil-pcy",
           "cart_url": "https://store.401games.ca/cart/46242217492667:1"
+        }
+      ],
+      "unavailable": []
+    },
+    {
+      "name": "Weatherseed Treefolk",
+      "set": "ULG",
+      "target_price": 43.0,
+      "available_count": 0,
+      "total_matches": 0,
+      "available": [],
+      "unavailable": []
+    },
+    {
+      "name": "Faces of the Past",
+      "set": "SCG",
+      "target_price": 27.52,
+      "available_count": 2,
+      "total_matches": 2,
+      "available": [
+        {
+          "store": "Face to Face Games",
+          "store_domain": "www.facetofacegames.com",
+          "currency": "CAD",
+          "title": "Faces of the Past [35] [Scourge] [Foil]",
+          "price": 31.49,
+          "available": true,
+          "condition": "PL",
+          "variant_id": 51738441482612,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/faces-of-the-past-35-scourge-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51738441482612:1"
+        },
+        {
+          "store": "401 Games",
+          "store_domain": "store.401games.ca",
+          "currency": "CAD",
+          "title": "Faces of the Past (Foil) (SCG)",
+          "price": 33.75,
+          "available": true,
+          "condition": "MP",
+          "variant_id": 30224528408651,
+          "quantity": 5,
+          "product_url": "https://store.401games.ca/products/faces-of-the-past-foil-scg",
+          "cart_url": "https://store.401games.ca/cart/30224528408651:1"
         }
       ],
       "unavailable": []
@@ -194,42 +225,9 @@
           "available": true,
           "condition": "PL",
           "variant_id": 51736211259764,
+          "quantity": 0,
           "product_url": "https://www.facetofacegames.com/products/close-quarters-184-mercadian-masques-foil",
           "cart_url": "https://www.facetofacegames.com/cart/51736211259764:1"
-        }
-      ],
-      "unavailable": []
-    },
-    {
-      "name": "Faces of the Past",
-      "set": "SCG",
-      "target_price": 27.52,
-      "available_count": 2,
-      "total_matches": 2,
-      "available": [
-        {
-          "store": "Face to Face Games",
-          "store_domain": "www.facetofacegames.com",
-          "currency": "CAD",
-          "title": "Faces of the Past [35] [Scourge] [Non-Foil]",
-          "price": 6.29,
-          "available": true,
-          "condition": "PL",
-          "variant_id": 51738445775220,
-          "product_url": "https://www.facetofacegames.com/products/faces-of-the-past-35-scourge-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51738445775220:1"
-        },
-        {
-          "store": "401 Games",
-          "store_domain": "store.401games.ca",
-          "currency": "CAD",
-          "title": "Faces of the Past (Foil) (SCG)",
-          "price": 33.75,
-          "available": true,
-          "condition": "MP",
-          "variant_id": 30224528408651,
-          "product_url": "https://store.401games.ca/products/faces-of-the-past-foil-scg",
-          "cart_url": "https://store.401games.ca/cart/30224528408651:1"
         }
       ],
       "unavailable": []
@@ -245,13 +243,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Xantid Swarm [193] [Eternal Masters] [Non-Foil]",
-          "price": 6.39,
+          "title": "Xantid Swarm [193] [Eternal Masters] [Foil]",
+          "price": 10.99,
           "available": true,
-          "condition": "PL",
-          "variant_id": 51733866054004,
-          "product_url": "https://www.facetofacegames.com/products/xantid-swarm-193-eternal-masters-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51733866054004:1"
+          "condition": "NM",
+          "variant_id": 51733863235956,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/xantid-swarm-193-eternal-masters-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51733863235956:1"
         }
       ],
       "unavailable": []
@@ -267,13 +266,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Infected Vermin [144] [Odyssey] [Non-Foil]",
-          "price": 0.49,
+          "title": "Infected Vermin [144] [Odyssey] [Foil]",
+          "price": 2.39,
           "available": true,
-          "condition": "NM",
-          "variant_id": 51736605327732,
-          "product_url": "https://www.facetofacegames.com/products/infected-vermin-144-odyssey-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51736605327732:1"
+          "condition": "PL",
+          "variant_id": 51736602607988,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/infected-vermin-144-odyssey-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51736602607988:1"
         }
       ],
       "unavailable": []
@@ -289,13 +289,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Endbringer's Revel [63] [Prophecy] [Non-Foil]",
-          "price": 0.39,
+          "title": "Endbringer's Revel [63] [Prophecy] [Foil]",
+          "price": 3.49,
           "available": true,
           "condition": "PL",
-          "variant_id": 51737067454836,
-          "product_url": "https://www.facetofacegames.com/products/endbringers-revel-63-prophecy-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51737067454836:1"
+          "variant_id": 51737064407412,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/endbringers-revel-63-prophecy-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51737064407412:1"
         },
         {
           "store": "401 Games",
@@ -306,6 +307,7 @@
           "available": true,
           "condition": "HP",
           "variant_id": 46242219458747,
+          "quantity": 1,
           "product_url": "https://store.401games.ca/products/endbringers-revel-foil-pcy",
           "cart_url": "https://store.401games.ca/cart/46242219458747:1"
         }
@@ -323,13 +325,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Skirk Marauder [48] [Archenemy 2010] [Non-Foil]",
-          "price": 0.49,
+          "title": "Skirk Marauder [113] [Legions] [Foil]",
+          "price": 1.59,
           "available": true,
-          "condition": "NM",
-          "variant_id": 51732051427700,
-          "product_url": "https://www.facetofacegames.com/products/skirk-marauder-48-archenemy-2010-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51732051427700:1"
+          "condition": "PL",
+          "variant_id": 51735034495348,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/skirk-marauder-113-legions-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51735034495348:1"
         }
       ],
       "unavailable": []
@@ -345,13 +348,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Stronghold Zeppelin [47] [Nemesis] [Non-Foil]",
-          "price": 0.49,
+          "title": "Stronghold Zeppelin [47] [Nemesis] [Foil]",
+          "price": 0.99,
           "available": true,
           "condition": "NM",
-          "variant_id": 51736496701812,
-          "product_url": "https://www.facetofacegames.com/products/stronghold-zeppelin-47-nemesis-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51736496701812:1"
+          "variant_id": 51736493621620,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/stronghold-zeppelin-47-nemesis-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51736493621620:1"
         }
       ],
       "unavailable": []
@@ -367,13 +371,14 @@
           "store": "Face to Face Games",
           "store_domain": "www.facetofacegames.com",
           "currency": "CAD",
-          "title": "Rhox [291] [Tenth Edition] [Non-Foil]",
-          "price": 0.6,
+          "title": "Rhox [10E-291] [The List] [Foil]",
+          "price": 0.49,
           "available": true,
-          "condition": "PL",
-          "variant_id": 51731126059380,
-          "product_url": "https://www.facetofacegames.com/products/rhox-291-tenth-edition-non-foil",
-          "cart_url": "https://www.facetofacegames.com/cart/51731126059380:1"
+          "condition": "NM",
+          "variant_id": 51737368985972,
+          "quantity": 0,
+          "product_url": "https://www.facetofacegames.com/products/rhox-10e-291-the-list-foil",
+          "cart_url": "https://www.facetofacegames.com/cart/51737368985972:1"
         }
       ],
       "unavailable": []
@@ -384,17 +389,17 @@
       "name": "Undermine",
       "set": "INV",
       "store": "Face to Face Games",
-      "price": 6.39,
-      "variant_id": 51733334983028,
-      "cart_url": "https://www.facetofacegames.com/cart/51733334983028:1"
+      "price": 172.49,
+      "variant_id": 51734479176052,
+      "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1"
     },
     {
       "name": "Barbed Field",
       "set": "PCY",
       "store": "Face to Face Games",
-      "price": 0.39,
-      "variant_id": 51737065488756,
-      "cart_url": "https://www.facetofacegames.com/cart/51737065488756:1"
+      "price": 3.19,
+      "variant_id": 51737066996084,
+      "cart_url": "https://www.facetofacegames.com/cart/51737066996084:1"
     },
     {
       "name": "Barbed Field",
@@ -408,25 +413,17 @@
       "name": "Utopia Tree",
       "set": "INV",
       "store": "Face to Face Games",
-      "price": 3.19,
-      "variant_id": 51734471934324,
-      "cart_url": "https://www.facetofacegames.com/cart/51734471934324:1"
-    },
-    {
-      "name": "Weatherseed Treefolk",
-      "set": "ULG",
-      "store": "Face to Face Games",
-      "price": 1.59,
-      "variant_id": 51739653374324,
-      "cart_url": "https://www.facetofacegames.com/cart/51739653374324:1"
+      "price": 23.99,
+      "variant_id": 51731725681012,
+      "cart_url": "https://www.facetofacegames.com/cart/51731725681012:1"
     },
     {
       "name": "Wheel and Deal",
       "set": "ONS",
       "store": "Face to Face Games",
-      "price": 22.49,
-      "variant_id": 51736749375860,
-      "cart_url": "https://www.facetofacegames.com/cart/51736749375860:1"
+      "price": 26.99,
+      "variant_id": 51738540015988,
+      "cart_url": "https://www.facetofacegames.com/cart/51738540015988:1"
     },
     {
       "name": "Wheel and Deal",
@@ -453,20 +450,12 @@
       "cart_url": "https://store.401games.ca/cart/46242217492667:1"
     },
     {
-      "name": "Close Quarters",
-      "set": "MMQ",
-      "store": "Face to Face Games",
-      "price": 3.49,
-      "variant_id": 51736211259764,
-      "cart_url": "https://www.facetofacegames.com/cart/51736211259764:1"
-    },
-    {
       "name": "Faces of the Past",
       "set": "SCG",
       "store": "Face to Face Games",
-      "price": 6.29,
-      "variant_id": 51738445775220,
-      "cart_url": "https://www.facetofacegames.com/cart/51738445775220:1"
+      "price": 31.49,
+      "variant_id": 51738441482612,
+      "cart_url": "https://www.facetofacegames.com/cart/51738441482612:1"
     },
     {
       "name": "Faces of the Past",
@@ -477,28 +466,36 @@
       "cart_url": "https://store.401games.ca/cart/30224528408651:1"
     },
     {
+      "name": "Close Quarters",
+      "set": "MMQ",
+      "store": "Face to Face Games",
+      "price": 3.49,
+      "variant_id": 51736211259764,
+      "cart_url": "https://www.facetofacegames.com/cart/51736211259764:1"
+    },
+    {
       "name": "Xantid Swarm",
       "set": "SCG",
       "store": "Face to Face Games",
-      "price": 6.39,
-      "variant_id": 51733866054004,
-      "cart_url": "https://www.facetofacegames.com/cart/51733866054004:1"
+      "price": 10.99,
+      "variant_id": 51733863235956,
+      "cart_url": "https://www.facetofacegames.com/cart/51733863235956:1"
     },
     {
       "name": "Infected Vermin",
       "set": "ODY",
       "store": "Face to Face Games",
-      "price": 0.49,
-      "variant_id": 51736605327732,
-      "cart_url": "https://www.facetofacegames.com/cart/51736605327732:1"
+      "price": 2.39,
+      "variant_id": 51736602607988,
+      "cart_url": "https://www.facetofacegames.com/cart/51736602607988:1"
     },
     {
       "name": "Endbringer's Revel",
       "set": "PCY",
       "store": "Face to Face Games",
-      "price": 0.39,
-      "variant_id": 51737067454836,
-      "cart_url": "https://www.facetofacegames.com/cart/51737067454836:1"
+      "price": 3.49,
+      "variant_id": 51737064407412,
+      "cart_url": "https://www.facetofacegames.com/cart/51737064407412:1"
     },
     {
       "name": "Endbringer's Revel",
@@ -512,33 +509,33 @@
       "name": "Skirk Marauder",
       "set": "LGN",
       "store": "Face to Face Games",
-      "price": 0.49,
-      "variant_id": 51732051427700,
-      "cart_url": "https://www.facetofacegames.com/cart/51732051427700:1"
+      "price": 1.59,
+      "variant_id": 51735034495348,
+      "cart_url": "https://www.facetofacegames.com/cart/51735034495348:1"
     },
     {
       "name": "Stronghold Zeppelin",
       "set": "NEM",
       "store": "Face to Face Games",
-      "price": 0.49,
-      "variant_id": 51736496701812,
-      "cart_url": "https://www.facetofacegames.com/cart/51736496701812:1"
+      "price": 0.99,
+      "variant_id": 51736493621620,
+      "cart_url": "https://www.facetofacegames.com/cart/51736493621620:1"
     },
     {
       "name": "Rhox",
       "set": "S00",
       "store": "Face to Face Games",
-      "price": 0.6,
-      "variant_id": 51731126059380,
-      "cart_url": "https://www.facetofacegames.com/cart/51731126059380:1"
+      "price": 0.49,
+      "variant_id": 51737368985972,
+      "cart_url": "https://www.facetofacegames.com/cart/51737368985972:1"
     }
   ],
   "summary": {
     "total_cards_scanned": 15,
-    "total_available_listings": 19,
+    "total_available_listings": 18,
     "total_out_of_stock": 0,
     "stores_with_stock": {
-      "Face to Face Games": 14,
+      "Face to Face Games": 13,
       "401 Games": 5
     }
   },
@@ -546,10 +543,10 @@
     {
       "store": "Face to Face Games",
       "domain": "www.facetofacegames.com",
-      "item_count": 14,
-      "total": 57.57000000000001,
-      "cart_url": "https://www.facetofacegames.com/cart/51733334983028:1,51737065488756:1,51734471934324:1,51739653374324:1,51736749375860:1,51737064341876:1,51736211259764:1,51738445775220:1,51733866054004:1,51736605327732:1,51737067454836:1,51732051427700:1,51736496701812:1,51731126059380:1",
-      "checkout_url": "https://www.facetofacegames.com/cart/51733334983028:1,51737065488756:1,51734471934324:1,51739653374324:1,51736749375860:1,51737064341876:1,51736211259764:1,51738445775220:1,51733866054004:1,51736605327732:1,51737067454836:1,51732051427700:1,51736496701812:1,51731126059380:1"
+      "item_count": 13,
+      "total": 286.47,
+      "cart_url": "https://www.facetofacegames.com/cart/51734479176052:1,51737066996084:1,51731725681012:1,51738540015988:1,51737064341876:1,51738441482612:1,51736211259764:1,51733863235956:1,51736602607988:1,51737064407412:1,51735034495348:1,51736493621620:1,51737368985972:1",
+      "checkout_url": "https://www.facetofacegames.com/cart/51734479176052:1,51737066996084:1,51731725681012:1,51738540015988:1,51737064341876:1,51738441482612:1,51736211259764:1,51733863235956:1,51736602607988:1,51737064407412:1,51735034495348:1,51736493621620:1,51737368985972:1"
     },
     {
       "store": "401 Games",
