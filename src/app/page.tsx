@@ -48,16 +48,58 @@ export default function Dashboard() {
       }
       setAuthed(true);
 
-      // Load data
-      const res = await fetch("/api/data");
-      if (!res.ok) {
-        setLoading(false);
-        return;
+      // Load data from public/ static JSON files (works on Vercel)
+      const [analysisRes, availRes] = await Promise.all([
+        fetch("/data/analysis.json"),
+        fetch("/data/availability.json"),
+      ]);
+      const analysis = await analysisRes.json();
+      const availability = await availRes.json();
+
+      // Process data client-side (same logic as API route)
+      const availMap: Record<string, any[]> = {};
+      if (availability?.cards) {
+        for (const card of availability.cards) {
+          availMap[`${card.name}|${card.set || ""}`.toLowerCase()] = card.available || [];
+        }
       }
-      const data = await res.json();
-      setCards(data.cards || []);
-      setStores(data.stores || []);
-      setSummary(data.summary || {});
+
+      const merged: any[] = [];
+      const seen = new Set<string>();
+      for (const list of [
+        ...(analysis?.top_picks || []),
+        ...(analysis?.cheap_watchlist || []),
+      ]) {
+        const key = `${list.name}|${list.set || ""}`.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        const storeData = availMap[key] || [];
+        let bestStore = null;
+        if (storeData.length > 0) {
+          let best = storeData[0];
+          for (const s of storeData) { if (s.price < best.price) best = s; }
+          bestStore = best;
+        }
+        merged.push({ ...list, store_availability: storeData, best_price: bestStore?.price ?? null, best_store: bestStore });
+      }
+
+      // Build store list
+      const storeNames = new Set<string>();
+      if (availability?.cards) {
+        for (const card of availability.cards) {
+          for (const hit of [...(card.available || []), ...(card.unavailable || [])]) {
+            storeNames.add(hit.store);
+          }
+        }
+      }
+
+      setCards(merged.sort((a: any, b: any) => (b.composite_score || 0) - (a.composite_score || 0)));
+      setStores(Array.from(storeNames));
+      setSummary({
+        ...(analysis?.summary || {}),
+        availability: availability?.summary || {},
+        scanned_at: availability?.scanned_at || null,
+      });
       setLoading(false);
     })();
   }, [router]);
