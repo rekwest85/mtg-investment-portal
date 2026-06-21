@@ -18,6 +18,7 @@ export default function CardPopover({
   cardName,
   setCode,
   foilPrice,
+  foilPriceCad,
   reasons,
   typeLine,
   rarity,
