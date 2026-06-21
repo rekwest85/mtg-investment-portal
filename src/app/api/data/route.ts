@@ -1,40 +1,45 @@
 import { NextResponse } from "next/server";
-import path from "path";
 
-const LOCAL_DIR = "C:\\Users\\boss\\AppData\\Local\\hermes\\cron\\output\\mtg_bot";
-
-function tryRead(filePath: string | null) {
-  if (!filePath) return null;
+// Module-level helper — avoids "function in block" TS strict mode error
+function tryReadFile(filePath: string): any {
   try {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const fs = require("fs") as typeof import("fs");
-    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const fs = require("fs");
+    if (fs.existsSync(filePath)) {
+      return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    }
   } catch {
-    return null;
+    // File not found or parse error
   }
+  return null;
 }
 
-function findDataFile(name: string): string | null {
-  const repoDir = path.join(process.cwd(), "data");
-  const localPath = path.join(LOCAL_DIR, name);
-  const repoPath = path.join(repoDir, name);
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const fs = require("fs") as typeof import("fs");
-    if (fs.existsSync(localPath)) return localPath;
-    if (fs.existsSync(repoPath)) return repoPath;
-  } catch {
-    // Ignore
+function findDataFile(name: string, baseDir: string): string | null {
+  const candidates = [
+    `${baseDir}/data/${name}`,
+    `${baseDir}/public/data/${name}`,
+    `${baseDir}/../data/${name}`,
+  ];
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const fs = require("fs");
+  for (const p of candidates) {
+    try {
+      if (fs.existsSync(p)) return p;
+    } catch {
+      // skip
+    }
   }
   return null;
 }
 
 export async function GET() {
   try {
-    const analysis = tryRead(findDataFile("analysis.json"));
-    const availability = tryRead(findDataFile("availability.json"));
-    const history = tryRead(findDataFile("price_history.json"));
-    const meta = tryRead(findDataFile("meta.json"));
+    const baseDir = process.cwd();
+
+    const analysis = tryReadFile(findDataFile("analysis.json", baseDir));
+    const availability = tryReadFile(findDataFile("availability.json", baseDir));
+    const history = tryReadFile(findDataFile("price_history.json", baseDir));
+    const meta = tryReadFile(findDataFile("meta.json", baseDir));
 
     // Build store availability map
     const availMap: Record<string, any[]> = {};
