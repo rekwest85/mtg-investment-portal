@@ -67,6 +67,9 @@ export default function Dashboard() {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
   const [scanning, setScanning] = useState(false);
   const [showScan, setShowScan] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [triggering, setTriggering] = useState(false);
+  const [triggerMsg, setTriggerMsg] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -151,6 +154,30 @@ export default function Dashboard() {
     setScanning(false);
   };
 
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    // Force cache-bust reload of the page
+    window.location.reload();
+  };
+
+  const handleScanNow = async () => {
+    setTriggering(true);
+    setTriggerMsg(null);
+    try {
+      const res = await fetch("/api/trigger-scan", { method: "POST" });
+      const data = await res.json();
+      if (data.ok) {
+        setTriggerMsg("✅ Scan queued! Hermes will run it in ~2 min.");
+      } else {
+        setTriggerMsg("❌ " + (data.error || "Failed"));
+      }
+    } catch (err) {
+      setTriggerMsg("❌ Network error");
+    }
+    setTriggering(false);
+    setTimeout(() => setTriggerMsg(null), 8000);
+  };
+
   if (!authed) return null;
 
   return (
@@ -171,17 +198,44 @@ export default function Dashboard() {
               )}
             </p>
           </div>
-          <button
-            onClick={() => setShowScan(!showScan)}
-            className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
-              showScan
-                ? "bg-purple-600 text-white"
-                : "bg-slate-800 text-slate-400 hover:bg-slate-700"
-            }`}
-          >
-            🔍 Scan Card
-          </button>
+          <div className="flex items-center gap-2">
+            {/* Refresh button */}
+            <button
+              onClick={handleRefresh}
+              disabled={refreshing}
+              className="px-3 py-1.5 text-xs rounded-lg bg-slate-800 text-slate-400 hover:bg-slate-700 transition-colors disabled:opacity-50"
+            >
+              {refreshing ? "⟳ Refreshing..." : "🔄 Refresh"}
+            </button>
+            {/* Scan Now button */}
+            <button
+              onClick={handleScanNow}
+              disabled={triggering}
+              className="px-3 py-1.5 text-xs rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white transition-colors disabled:opacity-50"
+            >
+              {triggering ? "⏳ Scanning..." : "📡 Scan Now"}
+            </button>
+            {/* Scan Card toggle */}
+            <button
+              onClick={() => setShowScan(!showScan)}
+              className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
+                showScan
+                  ? "bg-purple-600 text-white"
+                  : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+              }`}
+            >
+              🔍 Scan Card
+            </button>
+          </div>
         </div>
+        {/* Trigger feedback banner */}
+        {triggerMsg && (
+          <div className="max-w-7xl mx-auto px-4 py-2 text-xs">
+            <span className={triggerMsg.startsWith("✅") ? "text-green-400" : "text-red-400"}>
+              {triggerMsg}
+            </span>
+          </div>
+        )}
       </header>
 
       {/* Main Content */}

@@ -274,6 +274,68 @@ export default function CardTable({
                     )}
                   </td>
                 </tr>
+                {/* Expanded Price Chart Row */}
+                {isExpanded && (
+                  <tr key={`${cardKey}-chart`} className="border-b border-slate-800/50">
+                    <td colSpan={stores.length + 4} className="bg-slate-900/60 p-4">
+                      <div className="max-w-2xl mx-auto">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium text-slate-300">
+                            📈 Price History — {card.name}
+                          </span>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); toggleExpand(cardKey); }}
+                            className="text-xs text-slate-500 hover:text-slate-300"
+                          >
+                            Close ✕
+                          </button>
+                        </div>
+                        {card.price_history ? (
+                          <PriceChart
+                            priceHistory={card.price_history}
+                            currentPrice={card.foil_price}
+                          />
+                        ) : (
+                          <div className="text-xs text-slate-500 text-center py-3">
+                            Price history data will accumulate after future scans
+                          </div>
+                        )}
+                        {/* Buy links for each store */}
+                        {card.store_availability.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-slate-800/50">
+                            <div className="text-[10px] text-slate-500 mb-2 uppercase tracking-wide">Buy From</div>
+                            <div className="flex flex-wrap gap-2">
+                              {card.store_availability.map((avail: any, i: number) => {
+                                const storeColor = avail.store === "Face to Face Games" ? "bg-emerald-600/10" :
+                                  avail.store === "401 Games" ? "bg-blue-600/10" :
+                                  avail.store === "Game Knight" ? "bg-indigo-600/10" :
+                                  avail.store === "Gamezilla" ? "bg-cyan-600/10" :
+                                  avail.store === "Hairy Tarantula" ? "bg-rose-600/10" :
+                                  avail.store === "Cardboard Classics" ? "bg-amber-600/10" :
+                                  avail.store === "Level Up Games" ? "bg-lime-600/10" :
+                                  "bg-slate-800/50";
+                                return (
+                                  <a
+                                    key={i}
+                                    href={avail.product_url || avail.cart_url || "#"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${storeColor} text-slate-300 hover:text-white`}
+                                  >
+                                    {avail.store.split(" ")[0]}
+                                    <span className="font-mono">${avail.price.toFixed(2)}</span>
+                                    {avail.quantity > 1 && <span className="text-[9px] text-slate-500">×{avail.quantity}</span>}
+                                    <span className="text-[9px]">↗</span>
+                                  </a>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                )}
               );
             })}
           </tbody>
