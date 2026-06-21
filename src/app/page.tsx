@@ -48,6 +48,7 @@ interface ScanResult {
   total_in_stock: number;
   cheapest_price: number | null;
   cheapest_store: string | null;
+  error?: string;
 }
 
 export default function Dashboard() {
