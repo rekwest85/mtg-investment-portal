@@ -8,6 +8,8 @@ interface CardData {
   name: string;
   set: string;
   foil_price: number;
+  foil_price_cad: number;
+  cad_rate: number;
   composite_score: number;
   rarity: string;
   type_line: string;
@@ -174,6 +176,7 @@ export default function CardTable({
                         cardName={card.name}
                         setCode={card.set}
                         foilPrice={card.foil_price}
+                        foilPriceCad={card.foil_price_cad}
                         reasons={card.reasons}
                         typeLine={card.type_line}
                         rarity={card.rarity}
@@ -201,11 +204,12 @@ export default function CardTable({
                     </span>
                   </td>
 
-                  {/* Target Price */}
+                  {/* Target Price (CAD) */}
                   <td className="text-center px-1 py-3">
-                    <span className="font-mono text-slate-400 text-xs">
-                      ${card.foil_price?.toFixed(2) || "-"}
-                    </span>
+                    <div className="font-mono text-slate-400 text-xs">
+                      ${card.foil_price_cad?.toFixed(2) || card.foil_price?.toFixed(2) || "-"}
+                    </div>
+                    <div className="text-[8px] text-slate-600">CAD</div>
                   </td>
 
                   {/* Store Columns with Buy Links + Quantity */}

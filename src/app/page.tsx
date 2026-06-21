@@ -10,6 +10,8 @@ interface CardData {
   name: string;
   set: string;
   foil_price: number;
+  foil_price_cad: number;
+  cad_rate: number;
   composite_score: number;
   rarity: string;
   type_line: string;
@@ -252,7 +254,10 @@ export default function Dashboard() {
                         <div className="text-xs text-slate-500">
                           {scanResult.type_line} · {scanResult.rarity}
                           {scanResult.foil_price && (
-                            <span className="ml-2 text-emerald-400">${scanResult.foil_price.toFixed(2)} foil</span>
+                            <span className="ml-2">
+                              <span className="text-emerald-400">${(scanResult as any).foil_price_cad?.toFixed(2) || (scanResult.foil_price * 1.41).toFixed(2)} CAD</span>
+                              <span className="text-slate-600 ml-1">(${scanResult.foil_price.toFixed(2)} USD)</span>
+                            </span>
                           )}
                         </div>
                         <div className="text-xs text-slate-500 mt-1">

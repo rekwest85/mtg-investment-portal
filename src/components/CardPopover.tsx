@@ -6,6 +6,7 @@ interface CardPopoverProps {
   cardName: string;
   setCode: string;
   foilPrice: number;
+  foilPriceCad?: number;
   reasons?: string[];
   typeLine?: string;
   rarity?: string;
@@ -88,8 +89,10 @@ export default function CardPopover({
                 {/* Price + Score */}
                 <div className="flex gap-3 pt-1">
                   <div>
-                    <div className="text-[10px] text-slate-500">Target Price</div>
-                    <div className="text-sm font-bold text-emerald-400">${foilPrice.toFixed(2)}</div>
+                    <div className="text-[10px] text-slate-500">Target (CAD)</div>
+                    <div className="text-sm font-bold text-emerald-400">
+                      ${(foilPriceCad || foilPrice).toFixed(2)}
+                    </div>
                   </div>
                   {score && (
                     <div>
