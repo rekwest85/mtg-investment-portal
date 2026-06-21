@@ -1,42 +1,70 @@
 import { NextRequest, NextResponse } from "next/server";
 
-/**
- * POST /api/trigger-scan
- * 
- * With {reset: true} — clears the trigger (marks as completed)
- * Without reset — sets the trigger (requests a scan)
- * 
- * GET /api/trigger-scan — returns current trigger status
- */
+const OWNER = "rekwest85";
+const REPO = "mtg-investment-portal";
+const PATH = "scan_trigger.json";
+const BRANCH = "main";
+const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+
+async function getCurrentSha(): Promise<string | null> {
+  try {
+    const res = await fetch(`${API}?ref=${BRANCH}`, {
+      headers: { "User-Agent": "MTG-Portal/1.0", "Accept": "application/vnd.github.v3+json" },
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.sha || null;
+  } catch { return null; }
+}
+
+async function updateTriggerFile(requested: boolean): Promise<boolean> {
+  const sha = await getCurrentSha();
+  const content = JSON.stringify({
+    requested,
+    requested_at: requested ? new Date().toISOString() : null,
+    completed_at: requested ? null : new Date().toISOString(),
+  });
+  const body: any = {
+    message: requested ? "🔍 Scan requested via portal" : "✅ Scan completed (reset trigger)",
+    content: Buffer.from(content).toString("base64"),
+    branch: BRANCH,
+  };
+  if (sha) body.sha = sha;
+
+  try {
+    const res = await fetch(API, {
+      method: "PUT",
+      headers: {
+        "User-Agent": "MTG-Portal/1.0",
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    return res.ok;
+  } catch { return false; }
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const fs = require("fs");
-    const triggerPath = process.cwd() + "/public/scan_trigger.json";
     let body: any = {};
     try { body = await request.json(); } catch { body = {}; }
-    const now = new Date().toISOString();
 
     if (body.reset) {
-      // Reset trigger
-      fs.writeFileSync(triggerPath, JSON.stringify({
-        requested: false,
-        completed_at: now,
-        status: "completed",
-      }, null, 2));
-      return NextResponse.json({ ok: true, message: "Trigger reset.", completed_at: now });
+      const ok = await updateTriggerFile(false);
+      return NextResponse.json({
+        ok,
+        message: ok ? "Trigger reset." : "Failed to reset trigger (rate limit?)",
+      });
     }
 
-    // Set trigger
-    fs.writeFileSync(triggerPath, JSON.stringify({
-      requested: true,
-      requested_at: now,
-      status: "pending",
-    }, null, 2));
-
+    const ok = await updateTriggerFile(true);
     return NextResponse.json({
-      ok: true,
-      message: "Scan requested! Hermes will start within ~2 minutes.",
-      requested_at: now,
+      ok,
+      message: ok
+        ? "✅ Scan queued! Hermes will pick it up within ~2 minutes."
+        : "❌ Failed to trigger scan (GitHub rate limit?). Try again in a minute.",
+      requested_at: new Date().toISOString(),
     });
   } catch (error: any) {
     return NextResponse.json({
@@ -48,14 +76,19 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const fs = require("fs");
-    const triggerPath = process.cwd() + "/public/scan_trigger.json";
-    if (fs.existsSync(triggerPath)) {
-      const data = JSON.parse(fs.readFileSync(triggerPath, "utf-8"));
-      return NextResponse.json(data);
-    }
-    return NextResponse.json({ requested: false });
+    const sha = await getCurrentSha();
+    const res = await fetch(`${API}?ref=${BRANCH}`, {
+      headers: {
+        "User-Agent": "MTG-Portal/1.0",
+        "Accept": "application/vnd.github.v3+json",
+      },
+    });
+    if (!res.ok) return NextResponse.json({ requested: false, error: "not_found" });
+
+    const data = await res.json();
+    const decoded = JSON.parse(Buffer.from(data.content, "base64").toString());
+    return NextResponse.json(decoded);
   } catch {
-    return NextResponse.json({ requested: false });
+    return NextResponse.json({ requested: false, error: "fetch_failed" });
   }
 }
