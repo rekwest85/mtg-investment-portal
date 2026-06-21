@@ -36,6 +36,20 @@ interface SummaryData {
   scanned_at?: string;
 }
 
+interface ScanResult {
+  name: string;
+  set: string;
+  foil_price: number | null;
+  scryfall_uri: string | null;
+  image_uri: string | null;
+  rarity: string;
+  type_line: string;
+  stores: any[];
+  total_in_stock: number;
+  cheapest_price: number | null;
+  cheapest_store: string | null;
+}
+
 export default function Dashboard() {
   const router = useRouter();
   const [cards, setCards] = useState<CardData[]>([]);
@@ -43,6 +57,13 @@ export default function Dashboard() {
   const [summary, setSummary] = useState<SummaryData>({});
   const [loading, setLoading] = useState(true);
   const [authed, setAuthed] = useState(false);
+
+  // Scan Any Card state
+  const [scanSearch, setScanSearch] = useState("");
+  const [scanSet, setScanSet] = useState("");
+  const [scanResult, setScanResult] = useState<ScanResult | null>(null);
+  const [scanning, setScanning] = useState(false);
+  const [showScan, setShowScan] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -111,6 +132,22 @@ export default function Dashboard() {
     })();
   }, [router]);
 
+  const handleScanCard = async () => {
+    if (!scanSearch.trim()) return;
+    setScanning(true);
+    setScanResult(null);
+    try {
+      const params = new URLSearchParams({ name: scanSearch.trim() });
+      if (scanSet.trim()) params.set("set", scanSet.trim().toUpperCase());
+      const res = await fetch(`/api/scan-card?${params}`);
+      const data = await res.json();
+      setScanResult(data);
+    } catch (err) {
+      console.error("Scan error", err);
+    }
+    setScanning(false);
+  };
+
   if (!authed) return null;
 
   return (
@@ -131,6 +168,16 @@ export default function Dashboard() {
               )}
             </p>
           </div>
+          <button
+            onClick={() => setShowScan(!showScan)}
+            className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
+              showScan
+                ? "bg-purple-600 text-white"
+                : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+            }`}
+          >
+            🔍 Scan Card
+          </button>
         </div>
       </header>
 
@@ -142,6 +189,122 @@ export default function Dashboard() {
           </div>
         ) : (
           <>
+            {/* Scan Any Card Section */}
+            {showScan && (
+              <div className="bg-slate-900/80 border border-purple-800/50 rounded-xl p-4 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-sm font-semibold text-slate-200">🔍 Scan Any Card</h2>
+                  <span className="text-[10px] text-slate-500">Real-time search across all 10 stores</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <input
+                    type="text"
+                    placeholder="Card name (e.g., 'Force of Will')"
+                    value={scanSearch}
+                    onChange={(e) => setScanSearch(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleScanCard()}
+                    className="flex-1 min-w-[200px] bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Set code (opt)"
+                    value={scanSet}
+                    onChange={(e) => setScanSet(e.target.value.toUpperCase())}
+                    onKeyDown={(e) => e.key === "Enter" && handleScanCard()}
+                    className="w-24 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500 uppercase"
+                  />
+                  <button
+                    onClick={handleScanCard}
+                    disabled={scanning || !scanSearch.trim()}
+                    className="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 disabled:bg-slate-700 disabled:text-slate-500 text-white rounded-lg transition-colors"
+                  >
+                    {scanning ? (
+                      <span className="flex items-center gap-2">
+                        <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white" />
+                        Scanning...
+                      </span>
+                    ) : (
+                      "Scan"
+                    )}
+                  </button>
+                </div>
+
+                {/* Scan Results */}
+                {scanResult && !scanResult.error && (
+                  <div className="bg-slate-800/50 rounded-lg p-3 space-y-3">
+                    {/* Card Header */}
+                    <div className="flex items-start gap-3">
+                      {scanResult.image_uri && (
+                        <img
+                          src={scanResult.image_uri}
+                          alt={scanResult.name}
+                          className="w-16 h-auto rounded-md hidden sm:block"
+                        />
+                      )}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-slate-200 text-sm">{scanResult.name}</span>
+                          <span className="text-[10px] text-purple-400 bg-purple-900/30 px-2 py-0.5 rounded-full">
+                            {scanResult.set}
+                          </span>
+                        </div>
+                        <div className="text-xs text-slate-500">
+                          {scanResult.type_line} · {scanResult.rarity}
+                          {scanResult.foil_price && (
+                            <span className="ml-2 text-emerald-400">${scanResult.foil_price.toFixed(2)} foil</span>
+                          )}
+                        </div>
+                        <div className="text-xs text-slate-500 mt-1">
+                          {scanResult.total_in_stock > 0 ? (
+                            <span className="text-green-400">
+                              ✅ {scanResult.total_in_stock} store{scanResult.total_in_stock !== 1 ? "s" : ""} in stock
+                              · From ${scanResult.cheapest_price?.toFixed(2)} at {scanResult.cheapest_store}
+                            </span>
+                          ) : (
+                            <span className="text-slate-500">❌ No stock found at any store</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Store Results */}
+                    {scanResult.stores && scanResult.stores.length > 0 && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        {scanResult.stores.map((store: any, i: number) => (
+                          <a
+                            key={i}
+                            href={store.product_url || store.cart_url || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between bg-slate-800/50 hover:bg-slate-700/50 rounded-lg px-3 py-2 transition-colors"
+                          >
+                            <div className="flex items-center gap-2">
+                              <span className={`w-2 h-2 rounded-full ${store.available ? "bg-green-400" : "bg-yellow-400"}`} />
+                              <span className="text-xs text-slate-300 font-medium">{store.store.split(" ")[0]}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-mono text-emerald-400 font-bold">${store.price.toFixed(2)}</span>
+                              {store.quantity > 1 && (
+                                <span className="text-[9px] text-slate-500 bg-slate-800 px-1 py-0.5 rounded">×{store.quantity}</span>
+                              )}
+                              {store.condition && <span className="text-[9px] text-slate-600">{store.condition}</span>}
+                              <span className="text-[9px] text-slate-500">↗</span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {scanResult?.error && (
+                  <div className="text-xs text-red-400 bg-red-900/20 rounded-lg px-3 py-2">
+                    {scanResult.error}
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Market Overview */}
             <MarketOverview summary={summary} stores={stores} />
 
