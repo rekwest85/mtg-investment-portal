@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import CardPopover from "./CardPopover";
+import PriceChart from "./PriceChart";
 
 interface CardData {
   name: string;
@@ -31,6 +32,19 @@ const STORE_COLORS: Record<string, string> = {
   "Game Knight": "bg-indigo-600",
 };
 
+const STORE_BG_COLORS: Record<string, string> = {
+  "Face to Face Games": "bg-emerald-600/10",
+  "401 Games": "bg-blue-600/10",
+  "Wizard's Tower": "bg-violet-600/10",
+  "Taps Games": "bg-orange-600/10",
+  "Hairy Tarantula": "bg-rose-600/10",
+  "Cardboard Classics": "bg-amber-600/10",
+  "Gamezilla": "bg-cyan-600/10",
+  "Hobbiesville": "bg-pink-600/10",
+  "Level Up Games": "bg-lime-600/10",
+  "Game Knight": "bg-indigo-600/10",
+};
+
 export default function CardTable({
   cards,
   stores,
@@ -40,6 +54,7 @@ export default function CardTable({
 }) {
   const [sortBy, setSortBy] = useState<"score" | "price" | "name">("score");
   const [showAvail, setShowAvail] = useState<"all" | "in_stock" | "no_stock">("all");
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const filtered = cards.filter((c) => {
     if (showAvail === "in_stock") return c.store_availability.length > 0;
@@ -52,6 +67,10 @@ export default function CardTable({
     if (sortBy === "price") return (a.foil_price || 0) - (b.foil_price || 0);
     return a.name.localeCompare(b.name);
   });
+
+  const toggleExpand = (key: string) => {
+    setExpandedCard((prev) => (prev === key ? null : key));
+  };
 
   return (
     <div className="bg-slate-900/80 border border-slate-800 rounded-xl overflow-hidden">
@@ -93,20 +112,22 @@ export default function CardTable({
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+      <div className="overflow-x-auto max-w-full">
+        <table className="w-full text-sm" style={{ minWidth: `${stores.length * 100 + 300}px` }}>
           <thead>
             <tr className="border-b border-slate-800 text-slate-500 text-xs uppercase">
-              <th className="text-left px-4 py-3 font-medium">Card</th>
-              <th className="text-center px-2 py-3 font-medium">Score</th>
-              <th className="text-center px-2 py-3 font-medium">Target</th>
+              <th className="text-left px-4 py-3 font-medium sticky left-0 z-10 bg-slate-900/95 backdrop-blur min-w-[180px]">
+                Card
+              </th>
+              <th className="text-center px-2 py-3 font-medium w-16">Score</th>
+              <th className="text-center px-2 py-3 font-medium w-20">Target</th>
               {stores.map((s) => (
                 <th key={s} className="text-center px-2 py-3 font-medium min-w-[100px]">
                   <span className={`inline-block w-2 h-2 rounded-full ${STORE_COLORS[s] || "bg-slate-600"} mr-1`} />
                   {s.split(" ")[0]}
                 </th>
               ))}
-              <th className="text-right px-4 py-3 font-medium">Best Deal</th>
+              <th className="text-right px-4 py-3 font-medium min-w-[100px]">Best Deal</th>
             </tr>
           </thead>
           <tbody>
@@ -114,101 +135,166 @@ export default function CardTable({
               const bestPrice = card.best_price;
               const bestStore = card.best_store;
               const bestDisplay = bestStore && bestPrice != null;
+              const cardKey = `${card.name}|${card.set}`;
+              const isExpanded = expandedCard === cardKey;
 
               return (
-                <tr
-                  key={`${card.name}|${card.set}`}
-                  className="border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors group"
-                >
-                  {/* Card Info */}
-                  <td className="px-4 py-3">
-                    <CardPopover
-                      cardName={card.name}
-                      setCode={card.set}
-                      foilPrice={card.foil_price}
-                      reasons={card.reasons}
-                      typeLine={card.type_line}
-                      rarity={card.rarity}
-                      score={card.composite_score}
-                    >
-                      <div className="font-medium text-slate-200 cursor-pointer hover:text-purple-300 transition-colors">{card.name}</div>
-                    </CardPopover>
-                    <div className="text-xs text-slate-500 flex gap-2 mt-0.5">
-                      <span className="text-purple-400">{card.set}</span>
-                      <span>{card.rarity}</span>
-                      <span className="text-slate-600">{card.type_line?.split("—")[0]?.trim()}</span>
-                    </div>
-                    {card.reasons && card.reasons.length > 0 && (
-                      <div className="text-[10px] text-slate-600 mt-1 hidden group-hover:block">
-                        {card.reasons.slice(0, 2).join(" · ")}
+                <>
+                  <tr
+                    key={cardKey}
+                    className={`border-b border-slate-800/50 hover:bg-slate-800/30 transition-colors group cursor-pointer ${
+                      isExpanded ? "bg-slate-800/40" : ""
+                    }`}
+                    onClick={() => toggleExpand(cardKey)}
+                  >
+                    {/* Card Info — STICKY */}
+                    <td className="px-4 py-3 sticky left-0 z-[5] bg-slate-950 group-hover:bg-slate-900/70 transition-colors border-r border-slate-800/30">
+                      <CardPopover
+                        cardName={card.name}
+                        setCode={card.set}
+                        foilPrice={card.foil_price}
+                        reasons={card.reasons}
+                        typeLine={card.type_line}
+                        rarity={card.rarity}
+                        score={card.composite_score}
+                      >
+                        <div className="font-medium text-slate-200 cursor-pointer hover:text-purple-300 transition-colors">{card.name}</div>
+                      </CardPopover>
+                      <div className="text-xs text-slate-500 flex gap-2 mt-0.5">
+                        <span className="text-purple-400">{card.set}</span>
+                        <span>{card.rarity}</span>
+                        <span className="text-slate-600">{card.type_line?.split("—")[0]?.trim()}</span>
                       </div>
-                    )}
-                  </td>
+                      {card.reasons && card.reasons.length > 0 && (
+                        <div className="text-[10px] text-slate-600 mt-1 hidden group-hover:block">
+                          {card.reasons.slice(0, 2).join(" · ")}
+                        </div>
+                      )}
+                    </td>
 
-                  {/* Score */}
-                  <td className="text-center px-2 py-3">
-                    <span className={`font-mono font-bold ${
-                      (card.composite_score || 0) >= 70 ? "text-emerald-400" :
-                      (card.composite_score || 0) >= 50 ? "text-amber-400" :
-                      "text-slate-400"
-                    }`}>
-                      {card.composite_score?.toFixed(0) || "-"}
-                    </span>
-                  </td>
+                    {/* Score */}
+                    <td className="text-center px-2 py-3">
+                      <span className={`font-mono font-bold ${
+                        (card.composite_score || 0) >= 70 ? "text-emerald-400" :
+                        (card.composite_score || 0) >= 50 ? "text-amber-400" :
+                        "text-slate-400"
+                      }`}>
+                        {card.composite_score?.toFixed(0) || "-"}
+                      </span>
+                    </td>
 
-                  {/* Target Price */}
-                  <td className="text-center px-2 py-3">
-                    <span className="font-mono text-slate-400">
-                      ${card.foil_price?.toFixed(2) || "-"}
-                    </span>
-                  </td>
+                    {/* Target Price */}
+                    <td className="text-center px-2 py-3">
+                      <span className="font-mono text-slate-400">
+                        ${card.foil_price?.toFixed(2) || "-"}
+                      </span>
+                    </td>
 
-                  {/* Store Columns */}
-                  {stores.map((store) => {
-                    const avail = card.store_availability?.find(
-                      (a: any) => a.store === store
-                    );
-                    const isBest = bestDisplay && bestStore?.store === store;
+                    {/* Store Columns with Buy Links */}
+                    {stores.map((store) => {
+                      const avail = card.store_availability?.find(
+                        (a: any) => a.store === store
+                      );
+                      const isBest = bestDisplay && bestStore?.store === store;
 
-                    return (
-                      <td key={store} className="text-center px-2 py-3">
-                        {avail ? (
-                          <div className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-mono ${
-                            isBest
-                              ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700"
-                              : "bg-slate-800/50 text-slate-300"
-                          }`}>
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                            ${avail.price.toFixed(2)}
-                            <span className="text-[10px] text-slate-500 ml-0.5">
-                              {avail.variant_id ? "✓" : ""}
+                      return (
+                        <td key={store} className="text-center px-2 py-3">
+                          {avail ? (
+                            <a
+                              href={avail.product_url || avail.cart_url || "#"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-mono transition-colors ${
+                                isBest
+                                  ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700 hover:bg-emerald-800/50"
+                                  : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white"
+                              }`}
+                            >
+                              <span className={`w-1.5 h-1.5 rounded-full ${avail.available ? "bg-green-400" : "bg-yellow-400"}`} />
+                              ${avail.price.toFixed(2)}
+                              <span className="text-[10px] text-slate-500 ml-0.5">↗</span>
+                            </a>
+                          ) : (
+                            <span className="text-slate-700 text-[10px]">—</span>
+                          )}
+                        </td>
+                      );
+                    })}
+
+                    {/* Best Deal */}
+                    <td className="text-right px-4 py-3">
+                      {bestDisplay ? (
+                        <a
+                          href={bestStore.product_url || bestStore.cart_url || "#"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-block text-right hover:opacity-80 transition-opacity"
+                        >
+                          <div className="text-emerald-400 font-bold font-mono">
+                            ${bestPrice.toFixed(2)}
+                          </div>
+                          <div className="text-[10px] text-slate-500">
+                            {bestStore.condition
+                              ? `${bestStore.store} · ${bestStore.condition}`
+                              : bestStore.store}
+                          </div>
+                        </a>
+                      ) : (
+                        <span className="text-slate-700 text-xs">—</span>
+                      )}
+                    </td>
+                  </tr>
+
+                  {/* Expanded Price Chart Row */}
+                  {isExpanded && (
+                    <tr key={`${cardKey}-chart`} className="border-b border-slate-800/50">
+                      <td colSpan={stores.length + 4} className="bg-slate-900/60 p-4">
+                        <div className="max-w-2xl mx-auto">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-sm font-medium text-slate-300">
+                              📈 Price History — {card.name}
                             </span>
                           </div>
-                        ) : (
-                          <span className="text-slate-700 text-[10px]">—</span>
-                        )}
+                          {card.price_history ? (
+                            <PriceChart
+                              priceHistory={card.price_history}
+                              currentPrice={card.foil_price}
+                            />
+                          ) : (
+                            <div className="text-xs text-slate-500 text-center py-3">
+                              Price history data will accumulate after future scans
+                            </div>
+                          )}
+                          {/* Buy links for each store */}
+                          {card.store_availability.length > 0 && (
+                            <div className="mt-3 pt-3 border-t border-slate-800/50">
+                              <div className="text-[10px] text-slate-500 mb-2 uppercase tracking-wide">Buy From</div>
+                              <div className="flex flex-wrap gap-2">
+                                {card.store_availability.map((avail: any, i: number) => (
+                                  <a
+                                    key={i}
+                                    href={avail.product_url || avail.cart_url || "#"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                                      STORE_BG_COLORS[avail.store] || "bg-slate-800/50"
+                                    } text-slate-300 hover:text-white`}
+                                  >
+                                    {avail.store.split(" ")[0]}
+                                    <span className="font-mono">${avail.price.toFixed(2)}</span>
+                                    <span className="text-[10px]">↗</span>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </td>
-                    );
-                  })}
-
-                  {/* Best Deal */}
-                  <td className="text-right px-4 py-3">
-                    {bestDisplay ? (
-                      <div className="inline-block text-right">
-                        <div className="text-emerald-400 font-bold font-mono">
-                          ${bestPrice.toFixed(2)}
-                        </div>
-                        <div className="text-[10px] text-slate-500">
-                          {bestStore.condition
-                            ? `${bestStore.store} · ${bestStore.condition}`
-                            : bestStore.store}
-                        </div>
-                      </div>
-                    ) : (
-                      <span className="text-slate-700 text-xs">—</span>
-                    )}
-                  </td>
-                </tr>
+                    </tr>
+                  )}
+                </>
               );
             })}
           </tbody>

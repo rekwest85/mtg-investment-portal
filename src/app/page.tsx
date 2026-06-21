@@ -21,6 +21,13 @@ interface CardData {
   purchase_links: Record<string, string>;
 }
 
+// All known Canadian MTG stores we scan — show all columns even if no stock
+const KNOWN_STORES = [
+  "Face to Face Games", "401 Games", "Wizard's Tower",
+  "Taps Games", "Hairy Tarantula", "Cardboard Classics",
+  "Gamezilla", "Hobbiesville", "Level Up Games", "Game Knight",
+];
+
 interface SummaryData {
   total_cards_under_50?: number;
   total_under_5?: number;
@@ -83,12 +90,12 @@ export default function Dashboard() {
         merged.push({ ...list, store_availability: storeData, best_price: bestStore?.price ?? null, best_store: bestStore });
       }
 
-      // Build store list
-      const storeNames = new Set<string>();
+      // Build store list — merge known stores with any from data
+      const storeNames = new Set(KNOWN_STORES);
       if (availability?.cards) {
         for (const card of availability.cards) {
           for (const hit of [...(card.available || []), ...(card.unavailable || [])]) {
-            storeNames.add(hit.store);
+            if (hit.store) storeNames.add(hit.store);
           }
         }
       }

@@ -26,11 +26,7 @@ export default function CardPopover({
   const [show, setShow] = useState(false);
   const [imgError, setImgError] = useState(false);
 
-  // Scryfall image URL — use set code + name to build the card identifier
-  const scryfallQuery = `${encodeURIComponent(cardName)}&set=${setCode}`;
-  const scryfallUrl = `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(cardName)}&set=${setCode}`;
-
-  // Fallback to search
+  // Scryfall image URL
   const imageUrl = `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(
     cardName
   )}&set=${setCode}&format=image&version=large`;
@@ -44,7 +40,10 @@ export default function CardPopover({
       {children}
 
       {show && (
-        <div className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 pointer-events-none">
+        <div className="fixed z-[9999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                        sm:absolute sm:top-auto sm:left-auto sm:translate-x-0 sm:translate-y-0
+                        sm:bottom-full sm:left-1/2 sm:-translate-x-1/2 sm:mb-2
+                        w-56 sm:w-64 pointer-events-auto shadow-2xl">
           <div className="bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden backdrop-blur">
             {/* Card Image */}
             {!imgError ? (
@@ -55,30 +54,30 @@ export default function CardPopover({
                 onError={() => setImgError(true)}
               />
             ) : (
-              <div className="h-48 bg-gradient-to-br from-purple-900/50 to-slate-800 flex items-center justify-center">
+              <div className="h-36 sm:h-40 bg-gradient-to-br from-purple-900/50 to-slate-800 flex items-center justify-center">
                 <div className="text-center text-slate-400">
-                  <div className="text-4xl mb-1">🃏</div>
+                  <div className="text-3xl mb-1">🃏</div>
                   <div className="text-xs">{cardName}</div>
                 </div>
               </div>
             )}
 
             {/* Card Info */}
-            <div className="p-3 space-y-1">
+            <div className="p-2.5 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-slate-200 text-sm">{cardName}</span>
+                <span className="font-bold text-slate-200 text-xs sm:text-sm">{cardName}</span>
                 <span className="text-[10px] text-purple-400 bg-purple-900/30 px-2 py-0.5 rounded-full">
                   {setCode}
                 </span>
               </div>
 
               {typeLine && (
-                <div className="text-xs text-slate-400">{typeLine}</div>
+                <div className="text-[11px] text-slate-400">{typeLine}</div>
               )}
 
               {rarity && (
                 <div className="text-[10px] text-slate-500 uppercase tracking-wide">
-                  {rarity}
+                  {rarity} · Early Foil
                 </div>
               )}
 
@@ -102,8 +101,8 @@ export default function CardPopover({
 
               {/* Investment Reasons */}
               {reasons && reasons.length > 0 && (
-                <div className="pt-1">
-                  <div className="text-[10px] text-slate-500 mb-1">Why Invest</div>
+                <div className="pt-0.5">
+                  <div className="text-[10px] text-slate-500 mb-0.5">Why Invest</div>
                   <ul className="text-[10px] text-slate-400 space-y-0.5">
                     {reasons.slice(0, 3).map((r, i) => (
                       <li key={i} className="flex gap-1">
